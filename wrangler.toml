@@ -1,0 +1,7 @@
+name = "alkolove"
+main = "src/index.ts"
+compatibility_date = "2024-04-17"
+
+account_id="0365bf91e854bba836045ec59e4999a6"
+[site]
+bucket = "./public"
