@@ -5,3 +5,5 @@ compatibility_date = "2024-04-17"
 account_id="0365bf91e854bba836045ec59e4999a6"
 [site]
 bucket = "./public"
+[vars]
+DATABASE_URL = "postgresql://AlkoCheck-baza_owner:gP9SMYFboBy7@ep-hidden-waterfall-a2rqmtk5.eu-central-1.aws.neon.tech/AlkoCheck-baza?sslmode=require"
