@@ -336,50 +336,52 @@
 			font-size: 1.5em;
 			line-height: 1.6;
 		}
+
 		/* dodane przezemnie */
 		body {
-        font-family: Arial, sans-serif;
-    }
+			font-family: Arial, sans-serif;
+		}
 
-    #productForm {
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-    }
+		#productForm {
+			display: flex;
+			justify-content: center;
+			margin-top: 20px;
+		}
 
-    #productForm input[type="text"] {
-        font-size: 16px;
-        padding: 10px;
-        margin-right: 10px;
-        width: 300px;
-    }
+		#productForm input[type="text"] {
+			font-size: 16px;
+			padding: 10px;
+			margin-right: 10px;
+			width: 300px;
+		}
 
-    #productForm button {
-        font-size: 16px;
-        padding: 10px 20px;
-    }
+		#productForm button {
+			font-size: 16px;
+			padding: 10px 20px;
+		}
 
-    #productInfo {
-        max-width: 600px;
-        margin: 20px auto;
-        text-align: center;
-    }
+		#productInfo {
+			max-width: 600px;
+			margin: 20px auto;
+			text-align: center;
+		}
 
-    #productInfo img {
-        max-width: 100%;
-        height: auto;
-    }
+		#productInfo img {
+			max-width: 100%;
+			height: auto;
+		}
 
-    #productInfo div {
-        margin-bottom: 10px;
-    }
+		#productInfo div {
+			margin-bottom: 10px;
+		}
 
-    #productInfo hr {
-        border: 0;
-        border-top: 1px solid #ccc;
-        margin: 20px 0;
-    }
-	/* dodane przezemnie-koniec */
+		#productInfo hr {
+			border: 0;
+			border-top: 1px solid #ccc;
+			margin: 20px 0;
+		}
+
+		/* dodane przezemnie-koniec */
 	</style>
 	<link nowprocket data-no-minify="1" data-no-optimize="1" rel="stylesheet" id="wp-dark-mode-css"
 		href="/wp-content/plugins/wp-dark-mode/assets/css/app.min.css?ver=5.0.4" type="text/css" media="all">
@@ -570,14 +572,20 @@
 						max-height: 200px;
 						/* adjust as needed */
 					}
+
+					.center-vertical {
+						position: absolute;
+						top: 50%;
+						transform: translateY(-50%);
+					}
 				</style>
 				<form id="productForm">
-					<input type="text" id="productName" placeholder="Enter product name">
-					<button type="submit">Search</button>
+					<input type="text" id="productName" placeholder="Wpisz nazwę produktu">
+					<button type="submit" class="center-vertical">Szukaj!</button>
 				</form>
 			</div>
 
-			<div id="productInfo">placeholder</div>
+			<div id="productInfo"></div>
 
 			<script type="module">
 				document.getElementById('productForm').addEventListener('submit', function(e) {
