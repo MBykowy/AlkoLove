@@ -12,9 +12,27 @@
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<title>Wyszukiwarka &#8211; AlkoLove</title>
 	<meta name="robots" content="noindex, nofollow">
-	<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-	<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+	<link rel="alternate" type="application/rss+xml" title="AlkoLove &raquo; Kanał z wpisami" href="/feed/">
+	<link rel="alternate" type="application/rss+xml" title="AlkoLove &raquo; Kanał z komentarzami"
+		href="/comments/feed/">
+	<style id="classic-theme-styles-inline-css" type="text/css">
+		/*! This file is auto-generated */
+		.wp-block-button__link {
+			color: #fff;
+			background-color: #32373c;
+			border-radius: 9999px;
+			box-shadow: none;
+			text-decoration: none;
+			padding: calc(.667em + 2px) calc(1.333em + 2px);
+			font-size: 1.125em
+		}
 
+		.wp-block-file__button {
+			background: #32373c;
+			color: #fff;
+			text-decoration: none
+		}
+	</style>
 	<style id="global-styles-inline-css" type="text/css">
 		body {
 			--wp--preset--color--black: #000000;
@@ -336,53 +354,9 @@
 			font-size: 1.5em;
 			line-height: 1.6;
 		}
-		/* dodane przezemnie */
-		body {
-        font-family: Arial, sans-serif;
-    }
-
-    #productForm {
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-    }
-
-    #productForm input[type="text"] {
-        font-size: 16px;
-        padding: 10px;
-        margin-right: 10px;
-        width: 300px;
-    }
-
-    #productForm button {
-        font-size: 16px;
-        padding: 10px 20px;
-    }
-
-    #productInfo {
-        max-width: 600px;
-        margin: 20px auto;
-        text-align: center;
-    }
-
-    #productInfo img {
-        max-width: 100%;
-        height: auto;
-    }
-
-    #productInfo div {
-        margin-bottom: 10px;
-    }
-
-    #productInfo hr {
-        border: 0;
-        border-top: 1px solid #ccc;
-        margin: 20px 0;
-    }
-	/* dodane przezemnie-koniec */
 	</style>
 	<link nowprocket data-no-minify="1" data-no-optimize="1" rel="stylesheet" id="wp-dark-mode-css"
-		href="/wp-content/plugins/wp-dark-mode/assets/css/app.min.css?ver=5.0.4" type="text/css" media="all">
+		href="/wp-content/plugins/wp-dark-mode/assets/css/app.min.css" type="text/css" media="all">
 	<style id="wp-dark-mode-inline-css" type="text/css">
 		html[data-wp-dark-mode-active],
 		[data-wp-dark-mode-loading] {
@@ -398,61 +372,406 @@
 		.wp-dark-mode-active,
 		[data-wp-dark-mode] {
 			--wp-dark-mode-background-color: #232323;
-			--wp-dark-mode-text-color: #9e9e9e;
+			--wp-dark-mode-text-color: #f0f0f0;
 		}
 	</style>
 	<link rel="stylesheet" id="elementor-frontend-css"
-		href="/wp-content/plugins/elementor/assets/css/frontend-lite.min.css?ver=3.21.0" type="text/css" media="all">
-	<link rel="stylesheet" id="swiper-css"
-		href="/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css?ver=8.4.5" type="text/css"
-		media="all">
-	<link rel="stylesheet" id="elementor-post-11573-css"
-		href="/wp-content/uploads/elementor/css/post-11573.css?ver=1715020146" type="text/css" media="all">
-	<link rel="stylesheet" id="elementor-global-css" href="/wp-content/uploads/elementor/css/global.css?ver=1715020146"
+		href="/wp-content/plugins/elementor/assets/css/frontend-lite.min.css" type="text/css" media="all">
+	<link rel="stylesheet" id="swiper-css" href="/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css"
 		type="text/css" media="all">
+	<link rel="stylesheet" id="elementor-post-11573-css" href="/wp-content/uploads/elementor/css/post-11573.css"
+		type="text/css" media="all">
+	<link rel="stylesheet" id="elementor-global-css" href="/wp-content/uploads/elementor/css/global.css" type="text/css"
+		media="all">
 	<link rel="stylesheet" id="jquery-lightgallery-css"
-		href="/wp-content/themes/rife-free/js/light-gallery/css/lightgallery.min.css?ver=1.9.0" type="text/css"
-		media="all">
+		href="/wp-content/themes/rife-free/js/light-gallery/css/lightgallery.min.css" type="text/css" media="all">
 	<link rel="stylesheet" id="font-awesome-css"
-		href="/wp-content/plugins/elementor/assets/lib/font-awesome/css/font-awesome.min.css?ver=4.7.0" type="text/css"
+		href="/wp-content/plugins/elementor/assets/lib/font-awesome/css/font-awesome.min.css" type="text/css"
 		media="all">
-	<link rel="stylesheet" id="a13-icomoon-css" href="/wp-content/themes/rife-free/css/icomoon.css?ver=2.4.20"
-		type="text/css" media="all">
-	<link rel="stylesheet" id="a13-main-style-css" href="/wp-content/themes/rife-free/style.css?ver=2.4.20"
-		type="text/css" media="all">
-	<link rel="stylesheet" id="a13-user-css-css"
-		href="/wp-content/uploads/apollo13_framework_files/css/user.css?ver=2.4.20_1715019941" type="text/css"
+	<link rel="stylesheet" id="a13-icomoon-css" href="/wp-content/themes/rife-free/css/icomoon.css" type="text/css"
 		media="all">
+	<link rel="stylesheet" id="a13-main-style-css" href="/wp-content/themes/rife-free/style.css" type="text/css"
+		media="all">
+	<link rel="stylesheet" id="a13-user-css-css" href="/wp-content/uploads/apollo13_framework_files/css/user.css"
+		type="text/css" media="all">
 	<link rel="stylesheet" id="font-awesome-5-all-css"
-		href="/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css?ver=3.21.0" type="text/css"
-		media="all">
+		href="/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css" type="text/css" media="all">
 	<link rel="stylesheet" id="font-awesome-4-shim-css"
-		href="/wp-content/plugins/elementor/assets/lib/font-awesome/css/v4-shims.min.css?ver=3.21.0" type="text/css"
-		media="all">
+		href="/wp-content/plugins/elementor/assets/lib/font-awesome/css/v4-shims.min.css" type="text/css" media="all">
 	<link rel="stylesheet" id="google-fonts-1-css"
-		href="https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=swap&#038;subset=latin-ext&#038;ver=6.5.3"
+		href="https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=swap&#038;subset=latin-ext"
 		type="text/css" media="all">
 	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-	<script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
-	<script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js">
-	</script>
+	<!--[Custom]> -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+	<link rel="stylesheet" href="css/leaflet.extra-markers.min.css">
+	<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+	<script src="js/leaflet.extra-markers.min.js"></script>
+	<!--[Custom]> -->
+	<script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
+	<script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js"></script>
 	<script type="text/javascript" id="wp-dark-mode-js-extra">
+		/* <![CDATA[ */
+		var wp_dark_mode_json = {
+			"ajax_url": "\/wp-admin\/admin-ajax.php",
+			"nonce": "be1bd743c6",
+			"is_pro": "",
+			"version": "5.0.4",
+			"is_excluded": "",
+			"excluded_elements": " #wpadminbar, .wp-dark-mode-switch, .elementor-button-content-wrapper",
+			"options": {
+				"frontend_enabled": true,
+				"frontend_mode": "device",
+				"frontend_time_starts": "06:00 PM",
+				"frontend_time_ends": "06:00 AM",
+				"frontend_custom_css": "",
+				"frontend_remember_choice": true,
+				"admin_enabled": false,
+				"admin_enabled_block_editor": true,
+				"floating_switch_enabled": true,
+				"floating_switch_style": 1,
+				"floating_switch_size": "1",
+				"floating_switch_size_custom": 100,
+				"floating_switch_position": "right",
+				"floating_switch_position_side": "right",
+				"floating_switch_position_side_value": 10,
+				"floating_switch_position_bottom_value": 10,
+				"floating_switch_enabled_attention_effect": false,
+				"floating_switch_attention_effect": "wobble",
+				"floating_switch_enabled_cta": false,
+				"floating_switch_cta_text": "Enable Dark Mode",
+				"floating_switch_cta_color": "#ffffff",
+				"floating_switch_cta_background": "#000000",
+				"floating_switch_enabled_custom_icons": false,
+				"floating_switch_icon_light": "",
+				"floating_switch_icon_dark": "",
+				"floating_switch_enabled_custom_texts": false,
+				"floating_switch_text_light": "Light",
+				"floating_switch_text_dark": "Dark",
+				"menu_switch_enabled": false,
+				"content_switch_enabled_top_of_posts": false,
+				"content_switch_enabled_top_of_pages": false,
+				"content_switch_style": 1,
+				"color_mode": "automatic",
+				"color_presets": [{
+					"name": "Gold",
+					"bg": "#000",
+					"secondary_bg": "#000",
+					"text": "#dfdedb",
+					"link": "#e58c17",
+					"link_hover": "#e58c17",
+					"input_bg": "#000",
+					"input_text": "#dfdedb",
+					"input_placeholder": "#dfdedb",
+					"button_text": "#dfdedb",
+					"button_hover_text": "#dfdedb",
+					"button_bg": "#141414",
+					"button_hover_bg": "#141414",
+					"button_border": "#1e1e1e",
+					"enable_scrollbar": false,
+					"scrollbar_track": "#141414",
+					"scrollbar_thumb": "#dfdedb"
+				}, {
+					"name": "Sapphire",
+					"bg": "#1B2836",
+					"secondary_bg": "#1B2836",
+					"text": "#fff",
+					"link": "#459BE6",
+					"link_hover": "#459BE6",
+					"input_bg": "#1B2836",
+					"input_text": "#fff",
+					"input_placeholder": "#fff",
+					"button_text": "#fff",
+					"button_hover_text": "#fff",
+					"button_bg": "#2f3c4a",
+					"button_hover_bg": "#2f3c4a",
+					"button_border": "#394654",
+					"enable_scrollbar": false,
+					"scrollbar_track": "#1B2836",
+					"scrollbar_thumb": "#fff"
+				}, {
+					"name": "Fuchsia",
+					"bg": "#1E0024",
+					"secondary_bg": "#1E0024",
+					"text": "#fff",
+					"link": "#E251FF",
+					"link_hover": "#E251FF",
+					"input_bg": "#1E0024",
+					"input_text": "#fff",
+					"input_placeholder": "#fff",
+					"button_text": "#fff",
+					"button_hover_text": "#fff",
+					"button_bg": "#321438",
+					"button_hover_bg": "#321438",
+					"button_border": "#321438",
+					"enable_scrollbar": false,
+					"scrollbar_track": "#1E0024",
+					"scrollbar_thumb": "#fff"
+				}, {
+					"name": "Rose",
+					"bg": "#270000",
+					"secondary_bg": "#270000",
+					"text": "#fff",
+					"link": "#FF7878",
+					"link_hover": "#FF7878",
+					"input_bg": "#270000",
+					"input_text": "#fff",
+					"input_placeholder": "#fff",
+					"button_text": "#fff",
+					"button_hover_text": "#fff",
+					"button_bg": "#3b1414",
+					"button_hover_bg": "#3b1414",
+					"button_border": "#451e1e",
+					"enable_scrollbar": false,
+					"scrollbar_track": "#270000",
+					"scrollbar_thumb": "#fff"
+				}, {
+					"name": "Violet",
+					"bg": "#160037",
+					"secondary_bg": "#160037",
+					"text": "#EBEBEB",
+					"link": "#B381FF",
+					"link_hover": "#B381FF",
+					"input_bg": "#160037",
+					"input_text": "#EBEBEB",
+					"input_placeholder": "#EBEBEB",
+					"button_text": "#EBEBEB",
+					"button_hover_text": "#EBEBEB",
+					"button_bg": "#2a144b",
+					"button_hover_bg": "#2a144b",
+					"button_border": "#341e55",
+					"enable_scrollbar": false,
+					"scrollbar_track": "#160037",
+					"scrollbar_thumb": "#EBEBEB"
+				}, {
+					"name": "Pink",
+					"bg": "#121212",
+					"secondary_bg": "#121212",
+					"text": "#E6E6E6",
+					"link": "#FF9191",
+					"link_hover": "#FF9191",
+					"input_bg": "#121212",
+					"input_text": "#E6E6E6",
+					"input_placeholder": "#E6E6E6",
+					"button_text": "#E6E6E6",
+					"button_hover_text": "#E6E6E6",
+					"button_bg": "#262626",
+					"button_hover_bg": "#262626",
+					"button_border": "#303030",
+					"enable_scrollbar": false,
+					"scrollbar_track": "#121212",
+					"scrollbar_thumb": "#E6E6E6"
+				}, {
+					"name": "Kelly",
+					"bg": "#000A3B",
+					"secondary_bg": "#000A3B",
+					"text": "#FFFFFF",
+					"link": "#3AFF82",
+					"link_hover": "#3AFF82",
+					"input_bg": "#000A3B",
+					"input_text": "#FFFFFF",
+					"input_placeholder": "#FFFFFF",
+					"button_text": "#FFFFFF",
+					"button_hover_text": "#FFFFFF",
+					"button_bg": "#141e4f",
+					"button_hover_bg": "#141e4f",
+					"button_border": "#1e2859",
+					"enable_scrollbar": false,
+					"scrollbar_track": "#000A3B",
+					"scrollbar_thumb": "#FFFFFF"
+				}, {
+					"name": "Magenta",
+					"bg": "#171717",
+					"secondary_bg": "#171717",
+					"text": "#BFB7C0",
+					"link": "#F776F0",
+					"link_hover": "#F776F0",
+					"input_bg": "#171717",
+					"input_text": "#BFB7C0",
+					"input_placeholder": "#BFB7C0",
+					"button_text": "#BFB7C0",
+					"button_hover_text": "#BFB7C0",
+					"button_bg": "#2b2b2b",
+					"button_hover_bg": "#2b2b2b",
+					"button_border": "#353535",
+					"enable_scrollbar": false,
+					"scrollbar_track": "#171717",
+					"scrollbar_thumb": "#BFB7C0"
+				}, {
+					"name": "Green",
+					"bg": "#003711",
+					"secondary_bg": "#003711",
+					"text": "#FFFFFF",
+					"link": "#84FF6D",
+					"link_hover": "#84FF6D",
+					"input_bg": "#003711",
+					"input_text": "#FFFFFF",
+					"input_placeholder": "#FFFFFF",
+					"button_text": "#FFFFFF",
+					"button_hover_text": "#FFFFFF",
+					"button_bg": "#144b25",
+					"button_hover_bg": "#144b25",
+					"button_border": "#1e552f",
+					"enable_scrollbar": false,
+					"scrollbar_track": "#003711",
+					"scrollbar_thumb": "#FFFFFF"
+				}, {
+					"name": "Orange",
+					"bg": "#23243A",
+					"secondary_bg": "#23243A",
+					"text": "#D6CB99",
+					"link": "#FF9323",
+					"link_hover": "#FF9323",
+					"input_bg": "#23243A",
+					"input_text": "#D6CB99",
+					"input_placeholder": "#D6CB99",
+					"button_text": "#D6CB99",
+					"button_hover_text": "#D6CB99",
+					"button_bg": "#37384e",
+					"button_hover_bg": "#37384e",
+					"button_border": "#414258",
+					"enable_scrollbar": false,
+					"scrollbar_track": "#23243A",
+					"scrollbar_thumb": "#D6CB99"
+				}, {
+					"name": "Yellow",
+					"bg": "#151819",
+					"secondary_bg": "#151819",
+					"text": "#D5D6D7",
+					"link": "#DAA40B",
+					"link_hover": "#DAA40B",
+					"input_bg": "#151819",
+					"input_text": "#D5D6D7",
+					"input_placeholder": "#D5D6D7",
+					"button_text": "#D5D6D7",
+					"button_hover_text": "#D5D6D7",
+					"button_bg": "#292c2d",
+					"button_hover_bg": "#292c2d",
+					"button_border": "#333637",
+					"enable_scrollbar": false,
+					"scrollbar_track": "#151819",
+					"scrollbar_thumb": "#D5D6D7"
+				}, {
+					"name": "Facebook",
+					"bg": "#18191A",
+					"secondary_bg": "#18191A",
+					"text": "#DCDEE3",
+					"link": "#2D88FF",
+					"link_hover": "#2D88FF",
+					"input_bg": "#18191A",
+					"input_text": "#DCDEE3",
+					"input_placeholder": "#DCDEE3",
+					"button_text": "#DCDEE3",
+					"button_hover_text": "#DCDEE3",
+					"button_bg": "#2c2d2e",
+					"button_hover_bg": "#2c2d2e",
+					"button_border": "#363738",
+					"enable_scrollbar": false,
+					"scrollbar_track": "#18191A",
+					"scrollbar_thumb": "#DCDEE3"
+				}, {
+					"name": "Twitter",
+					"bg": "#141d26",
+					"secondary_bg": "#141d26",
+					"text": "#fff",
+					"link": "#1C9CEA",
+					"link_hover": "#1C9CEA",
+					"input_bg": "#141d26",
+					"input_text": "#fff",
+					"input_placeholder": "#fff",
+					"button_text": "#fff",
+					"button_hover_text": "#fff",
+					"button_bg": "#28313a",
+					"button_hover_bg": "#28313a",
+					"button_border": "#323b44",
+					"enable_scrollbar": false,
+					"scrollbar_track": "#141d26",
+					"scrollbar_thumb": "#fff"
+				}],
+				"color_preset_id": 0,
+				"color_filter_brightness": 100,
+				"color_filter_contrast": 90,
+				"color_filter_grayscale": 0,
+				"color_filter_sepia": 10,
+				"image_replaces": [],
+				"image_enabled_low_brightness": true,
+				"image_brightness": 80,
+				"image_low_brightness_excludes": [],
+				"image_enabled_low_grayscale": false,
+				"image_grayscale": 0,
+				"image_low_grayscale_excludes": [],
+				"video_replaces": [],
+				"video_enabled_low_brightness": false,
+				"video_brightness": 80,
+				"video_low_brightness_excludes": [],
+				"video_enabled_low_grayscale": false,
+				"video_grayscale": 0,
+				"video_low_grayscale_excludes": [],
+				"animation_enabled": true,
+				"animation_name": "fade-in",
+				"performance_track_dynamic_content": false,
+				"performance_load_scripts_in_footer": false,
+				"performance_execute_as": "sync",
+				"excludes_elements": "",
+				"excludes_elements_includes": "",
+				"excludes_posts": [],
+				"excludes_posts_all": false,
+				"excludes_posts_except": [],
+				"excludes_taxonomies": [],
+				"excludes_taxonomies_all": false,
+				"excludes_taxonomies_except": [],
+				"excludes_wc_products": [],
+				"excludes_wc_products_all": false,
+				"excludes_wc_products_except": [],
+				"excludes_wc_categories": [],
+				"excludes_wc_categories_all": false,
+				"excludes_wc_categories_except": [],
+				"accessibility_enabled_keyboard_shortcut": false,
+				"accessibility_enabled_url_param": false,
+				"typography_enabled": false,
+				"typography_font_size": "1.2",
+				"typography_font_size_custom": 100,
+				"analytics_enabled": false,
+				"analytics_enabled_dashboard_widget": true,
+				"analytics_enabled_email_reporting": false,
+				"analytics_email_reporting_frequency": "daily",
+				"analytics_email_reporting_address": "",
+				"analytics_email_reporting_subject": "WP Dark Mode Analytics Report"
+			},
+			"analytics_enabled": "",
+			"url": {
+				"ajax": "\/wp-admin\/admin-ajax.php",
+				"home": "",
+				"admin": "\/wp-admin\/",
+				"assets": "\/wp-content\/plugins\/wp-dark-mode\/assets\/"
+			},
+			"debug": ""
+		};
+		/* ]]> */
 	</script>
 	<script type="text/javascript" nowprocket data-no-minify="1" data-no-optimize="1"
-		src="/wp-content/plugins/wp-dark-mode/assets/js/app.min.js?ver=5.0.4" id="wp-dark-mode-js"></script>
-	<script type="text/javascript"
-		src="/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js?ver=3.21.0"
+		src="/wp-content/plugins/wp-dark-mode/assets/js/app.min.js" id="wp-dark-mode-js"></script>
+	<script type="text/javascript" src="/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js"
 		id="font-awesome-4-shim-js"></script>
 	<link rel="https://api.w.org/" href="/wp-json/">
 	<link rel="alternate" type="application/json" href="/wp-json/wp/v2/pages/11620">
 	<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd">
-	<meta name="generator" content="WordPress 6.5.3">
 	<link rel="canonical" href="/wyszukiwarka/">
 	<link rel="shortlink" href="/?p=11620">
 	<link rel="alternate" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=%2Fwyszukiwarka%2F">
 	<link rel="alternate" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=%2Fwyszukiwarka%2F#038;format=xml">
 	<script type="text/javascript">
-
+		// <![CDATA[
+		(function () {
+			var docElement = document.documentElement,
+				className = docElement.className;
+			// Change `no-js` to `js`
+			var reJS = new RegExp('(^|\\s)no-js( |\\s|$)');
+			//space as literal in second capturing group cause there is strange situation when \s is not catched on load when other plugins add their own classes
+			className = className.replace(reJS, '$1js$2');
+			docElement.className = className;
+		})();
+		// ]]>
 	</script>
 	<meta name="generator"
 		content="Elementor 3.21.0; features: e_optimized_assets_loading, e_optimized_css_loading, e_font_icon_svg, additional_custom_breakpoints, e_lazyload; settings: css_print_method-external, google_font-enabled, font_display-swap">
@@ -570,66 +889,141 @@
 						max-height: 200px;
 						/* adjust as needed */
 					}
+
+					.center-vertical {
+						display: flex;
+						align-items: center;
+						justify-content: center;
+					}
+
+					/* dodane przezemnie */
+					body {
+						font-family: Arial, sans-serif;
+					}
+
+					#productForm {
+						display: flex;
+						justify-content: center;
+						margin-top: 20px;
+					}
+
+					#productForm input[type="text"] {
+						font-size: 16px;
+						padding: 10px;
+						margin-right: 10px;
+						width: 300px;
+					}
+
+					#productForm button {
+						font-size: 16px;
+						padding: 0px 20px;
+					}
+
+					#productInfo {
+						max-width: 600px;
+						margin: 20px auto;
+						text-align: center;
+					}
+
+					#productInfo img {
+						max-width: 100%;
+						height: auto;
+					}
+
+					#productInfo div {
+						margin-bottom: 10px;
+					}
+
+					#productInfo hr {
+						border: 0;
+						border-top: 1px solid #ccc;
+						margin: 20px 0;
+					}
+
+					/* Wyszukiwanie */
 				</style>
 				<form id="productForm">
-					<input type="text" id="productName" placeholder="Enter product name">
-					<button type="submit">Search</button>
+					<input type="text" id="productName" placeholder="Wpisz nazwę produktu">
+					<button type="submit" class="center-vertical">Szukaj!</button>
 				</form>
 			</div>
 
-			<div id="productInfo">placeholder</div>
+			<div id="productInfo"></div>
 
 			<script type="module">
 				document.getElementById('productForm').addEventListener('submit', function(e) {
-					e.preventDefault();
-					const productName = document.getElementById('productName').value;
-					fetch(`/search?nazwa=${encodeURIComponent(productName)}`)
-						.then(response => response.json())
-						.then(rows => {
-							let html = '';
-							for (let row of rows) {
-								const shopId = row.shop ? row.shop.id_sklep : null;
-								html += `
-									<div>Nazwa produktu: ${row.nazwa}</div>
-									<div>Zawartość alkocholu: ${row.zawartosc_alk}%</div>
-									<div>Cena: ${row.cena} zł</div>
-									<div>Sklep: ${row.shop ? row.shop.nazwa : 'N/A'}</div>
-									<div>Adres sklepu: ${row.shop ? row.shop.adres : 'N/A'}</div>
-									<div><img src="${row.obraz}" alt="${row.nazwa}"></div>
-									${shopId ? `<div id="map${shopId}" style="height: 400px; width: 600px;"></div>` : ''}
-									<hr>`;
-							}
-							document.getElementById('productInfo').innerHTML = html;
-			
-							// Initialize the map for each shop
-							for (let row of rows) {
-								if (row.shop && row.shop.id_sklep) {
-									const map = L.map(`map${row.shop.id_sklep}`).setView([51.505, -0.09], 13);
-									L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-										maxZoom: 19,
-									}).addTo(map);
-									// Use a geocoding service to get the coordinates for the shop address
-									fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(row.shop.adres)}`)
-										.then(response => response.json())
-										.then(data => {
-											if (data[0]) {
-												map.setView([data[0].lat, data[0].lon], 13);
-												const smallIcon = new L.Icon({
-													iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-icon.png',
-													iconSize: [25, 41], // size of the icon
-													iconAnchor: [12, 41], // point of the icon which will correspond to marker's location
-													popupAnchor: [1, -34] // point from which the popup should open relative to the iconAnchor
-												});
-												const marker = L.marker([data[0].lat, data[0].lon], {icon: smallIcon}).addTo(map);
-												marker.bindPopup(`<b>${row.shop.nazwa}</b><br>${row.shop.adres}`).openPopup();
-											}
-										});
-								}
-							}
-						});
-				});
-			</script>
-			<!-- koniec customowych rzeczy -->
+        e.preventDefault();
+        const productName = document.getElementById('productName').value;
+        fetch(`/search?nazwa=${encodeURIComponent(productName)}`)
+            .then(response => response.json())
+            .then(rows => {
+                let html = '';
+                for (let row of rows) {
+                    const shopId = row.shop ? row.shop.id_sklep : null;
+                    html += `
+                        <div>Nazwa produktu: ${row.nazwa}</div>
+                        <div>Zawartość alkocholu: ${row.zawartosc_alk}%</div>
+                        <div>Cena: ${row.cena} zł</div>
+                        <div>Sklep: ${row.shop ? row.shop.nazwa : 'N/A'}</div>
+                        <div>Adres sklepu: ${row.shop ? row.shop.adres : 'N/A'}</div>
+                        <div><img src="${row.obraz}" alt="${row.nazwa}"></div>
+                        ${shopId ? `<div id="map${shopId}" style="height: 400px; width: 600px;"></div>` : ''}
+                        <hr>`;
+                }
+                document.getElementById('productInfo').innerHTML = html;
+
+				if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+        const userLocation = [position.coords.latitude, position.coords.longitude];
+        console.log("Lokalizacja usera : ", userLocation);
+
+        for (let row of rows) {
+            if (row.shop && row.shop.id_sklep) {
+                const map = L.map(`map${row.shop.id_sklep}`).setView(userLocation, 13);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                }).addTo(map);
+
+                // Create a custom icon
+const userIcon = L.icon({
+    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+});
+
+// Add a marker for the user's location with the custom icon
+L.marker(userLocation, {icon: userIcon}).addTo(map).bindPopup('You are here').openPopup();
+
+                fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(row.shop.adres)}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data[0]) {
+                            map.setView([data[0].lat, data[0].lon], 13);
+                            const smallIcon = new L.icon({
+		iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+		shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+		iconSize: [25, 41],
+		iconAnchor: [12, 41],
+		popupAnchor: [1, -34],
+		shadowSize: [41, 41]
+});
+                            const marker = L.marker([data[0].lat, data[0].lon], {icon: smallIcon}).addTo(map);
+                            marker.bindPopup(`<b>${row.shop.nazwa}</b><br>${row.shop.adres}`).openPopup();
+                        }
+                    });
+            }
+        }
+    });
+} else {
+    console.log("Geolocation is not supported by this browser.");
+}
+        });
+});
+</script>
+			<!-- Koniec wyszukiwania -->
 	</div>
 	</header>
 	<article id="content" class="clearfix" itemtype="https://schema.org/CreativeWork" itemscope>
@@ -766,27 +1160,24 @@
 			};
 			/* ]]> */
 		</script>
-		<script type="text/javascript" src="/wp-content/themes/rife-free/js/helpers.min.js?ver=2.4.20"
+		<script type="text/javascript" src="/wp-content/themes/rife-free/js/helpers.min.js"
 			id="apollo13framework-plugins-js"></script>
-		<script type="text/javascript" src="/wp-content/themes/rife-free/js/jquery.fitvids.min.js?ver=1.1"
+		<script type="text/javascript" src="/wp-content/themes/rife-free/js/jquery.fitvids.min.js"
 			id="jquery-fitvids-js"></script>
-		<script type="text/javascript" src="/wp-content/themes/rife-free/js/jquery.fittext.min.js?ver=1.2"
+		<script type="text/javascript" src="/wp-content/themes/rife-free/js/jquery.fittext.min.js"
 			id="jquery-fittext-js"></script>
-		<script type="text/javascript" src="/wp-content/themes/rife-free/js/jquery.slides.min.js?ver=3.0.4"
-			id="jquery-slides-js"></script>
-		<script type="text/javascript" src="/wp-content/themes/rife-free/js/jquery.sticky-kit.min.js?ver=1.1.2"
-			id="jquery-sticky-kit-js"></script>
-		<script type="text/javascript" src="/wp-content/themes/rife-free/js/jquery.mousewheel.min.js?ver=3.1.13"
-			id="jquery-mousewheel-js"></script>
-		<script type="text/javascript" src="/wp-content/themes/rife-free/js/typed.min.js?ver=1.1.4"
-			id="jquery-typed-js">
+		<script type="text/javascript" src="/wp-content/themes/rife-free/js/jquery.slides.min.js" id="jquery-slides-js">
 		</script>
-		<script type="text/javascript" src="/wp-content/themes/rife-free/js/isotope.pkgd.min.js?ver=3.0.6"
+		<script type="text/javascript" src="/wp-content/themes/rife-free/js/jquery.sticky-kit.min.js"
+			id="jquery-sticky-kit-js"></script>
+		<script type="text/javascript" src="/wp-content/themes/rife-free/js/jquery.mousewheel.min.js"
+			id="jquery-mousewheel-js"></script>
+		<script type="text/javascript" src="/wp-content/themes/rife-free/js/typed.min.js" id="jquery-typed-js"></script>
+		<script type="text/javascript" src="/wp-content/themes/rife-free/js/isotope.pkgd.min.js"
 			id="apollo13framework-isotope-js"></script>
-		<script type="text/javascript"
-			src="/wp-content/themes/rife-free/js/light-gallery/js/lightgallery-all.min.js?ver=1.9.0"
+		<script type="text/javascript" src="/wp-content/themes/rife-free/js/light-gallery/js/lightgallery-all.min.js"
 			id="jquery-lightgallery-js"></script>
-		<script type="text/javascript" src="/wp-content/themes/rife-free/js/script.min.js?ver=2.4.20"
+		<script type="text/javascript" src="/wp-content/themes/rife-free/js/script.min.js"
 			id="apollo13framework-scripts-js"></script>
 </body>
 
