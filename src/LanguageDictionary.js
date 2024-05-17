@@ -1,16 +1,38 @@
 document.addEventListener('DOMContentLoaded', function () {
     const languageSelector = document.getElementById('language-selector');
-    const title = document.getElementById('title');
-    const content = document.getElementById('content');
+    const napisStronaGlowna  = document.getElementById("menu-item-11577");
+    const napisKontakt  = document.getElementById("menu-item-11581");
+    const napisSprawdz  = document.getElementById("menu-item-11723");
+    const napisWyszukiwarka  = document.getElementById("menu-item-11724");
+    const napisOceny  = document.getElementById("menu-item-11725");
+    const napisPorownaj  = document.getElementById("menu-item-11726");
+    const napisFiltrowanie  = document.getElementById("menu-item-11727");
+    const napisSklepyWOkolicy  = document.getElementById("menu-item-11728");
+    const przyciskSzukaj = document.getElementById("search-button");
+
 
     const translations = {
         en: {
-            title: "Hello, World!",
-            content: "This is an example of a multilingual website."
+            napisStronaGlowna: "Main Page",
+            napisKontakt: "About us",
+            napisSprawdz: "Check",
+            napisWyszukiwarka: "Browser",
+            napisOceny: "Ratings",
+            napisPorownaj: "Compare",
+            napisFiltrowanie: "Filter",
+            napisSklepyWOkolicy: "Shops in the area",
+            przyciskSzukaj: "search"
         },
         pl: {
-            title: "Witaj, Świecie!",
-            content: "To jest przykład wielojęzycznej strony internetowej."
+            napisStronaGlowna: "Strona Główna",
+            napisKontakt: "O nas",
+            napisSprawdz: "Sprawdź",
+            napisWyszukiwarka: "Wyszukiwarka",
+            napisOceny: "Oceny",
+            napisPorownaj: "Porównaj",
+            napisFiltrowanie: "Filtruj",
+            napisSklepyWOkolicy: "Sklepy w okolicy",
+            przyciskSzukaj: "szukaj"
         }
     };
 
