@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const rozwinientyTekst = document.getElementById("rozwijanyTekst");
     const tekstZMilosciDoPrzyjemnosci = document.getElementById("tekstZMilosci");
     const tekstRozpocznij = document.getElementById("tekstRozpocznij");
+    const napisOceniaj = document.getElementById("napisOceniaj");
+    const napisSklepyWTwojej = document.getElementById("sklepyWTwojej")
 
 
 
@@ -29,7 +31,9 @@ document.addEventListener('DOMContentLoaded', function () {
             rozwinientyTekst: "Choosing alkohol easier thanks to" +
                 "Alkolove",
             tekstZMilosciDoPrzyjemnosci: "From love to pleasure",
-            tekstRozpocznij: "BEGIN"
+            tekstRozpocznij: "BEGIN",
+            napisOceniaj: "Rate",
+            napisSklepyWTwojej: "Shops in your area"
 
         },
         pl: {
@@ -45,7 +49,9 @@ document.addEventListener('DOMContentLoaded', function () {
             rozwinientyTekst: "Wybór alkoholu prostszy dzięki" +
                 "Alkolove",
             tekstZMilosciDoPrzyjemnosci: "Z miłości do przyjemności",
-            tekstRozpocznij: "ROZPOCZNIJ"
+            tekstRozpocznij: "ROZPOCZNIJ",
+            napisOceniaj: "Oceniaj",
+            napisSklepyWTwojej: "Sklepy w twojej okolicy"
 
         }
     };
