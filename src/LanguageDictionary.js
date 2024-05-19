@@ -9,6 +9,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const napisFiltrowanie  = document.getElementById("menu-item-11727");
     const napisSklepyWOkolicy  = document.getElementById("menu-item-11728");
     const przyciskSzukaj = document.getElementById("search-button");
+    const rozwinientyTekst = document.getElementById("rozwijanyTekst");
+    const tekstZMilosciDoPrzyjemnosci = document.getElementById("tekstZMilosci");
+    const tekstRozpocznij = document.getElementById("tekstRozpocznij");
+
 
 
     const translations = {
@@ -21,7 +25,12 @@ document.addEventListener('DOMContentLoaded', function () {
             napisPorownaj: "Compare",
             napisFiltrowanie: "Filter",
             napisSklepyWOkolicy: "Shops in the area",
-            przyciskSzukaj: "search"
+            przyciskSzukaj: "search",
+            rozwinientyTekst: "Choosing alkohol easier thanks to" +
+                "Alkolove",
+            tekstZMilosciDoPrzyjemnosci: "From love to pleasure",
+            tekstRozpocznij: "BEGIN"
+
         },
         pl: {
             napisStronaGlowna: "Strona Główna",
@@ -32,7 +41,12 @@ document.addEventListener('DOMContentLoaded', function () {
             napisPorownaj: "Porównaj",
             napisFiltrowanie: "Filtruj",
             napisSklepyWOkolicy: "Sklepy w okolicy",
-            przyciskSzukaj: "szukaj"
+            przyciskSzukaj: "szukaj",
+            rozwinientyTekst: "Wybór alkoholu prostszy dzięki" +
+                "Alkolove",
+            tekstZMilosciDoPrzyjemnosci: "Z miłości do przyjemności",
+            tekstRozpocznij: "ROZPOCZNIJ"
+
         }
     };
 
