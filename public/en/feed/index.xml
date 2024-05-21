@@ -9,11 +9,11 @@
 
 <channel>
 	<title>AlkoLove</title>
-	<atom:link href="/feed/" rel="self" type="application/rss+xml" />
-	<link></link>
+	<atom:link href="/en/feed/" rel="self" type="application/rss+xml" />
+	<link>/en</link>
 	<description>Z miłłości do przyjemności</description>
 	<lastBuildDate>Tue, 21 May 2024 14:24:07 +0000</lastBuildDate>
-	<language>pl-PL</language>
+	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
 	<sy:updateFrequency>
@@ -23,7 +23,7 @@
 <image>
 	<url>/wp-content/uploads/2020/04/logo-strony-512x512-1.png</url>
 	<title>AlkoLove</title>
-	<link></link>
+	<link>/en</link>
 	<width>32</width>
 	<height>32</height>
 </image> 
