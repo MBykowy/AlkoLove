@@ -1,10 +1,10 @@
-# [AlkoCheck](https://alkocheck.109218.workers.dev/)
+# [AlkoLove](https://alkolove.109218.workers.dev/)
 ## Welcome to AlkoCheck!
 
 <!-- write in style of README.md a description of a website about finding shops with cheapest prices, comparing products, adding opinions to shops and products, checking for promotions -->
 ##
 ### Description
-AlkoCheck is a website that allows you to find shops with the cheapest prices, compare products, add opinions to shops and products, check for promotions and much more. The website is designed to help you find the best deals on alcohol products in your area. You can search for products by name, brand, or category, and compare prices from different shops. You can also read reviews from other users, and leave your own opinions on shops and products. The website also has a promotions section, where you can find the latest deals and discounts on alcohol products. Whether you're looking for a specific product, or just want to see what's on offer, AlkoCheck has you covered.
+AlkoLove is a website that allows you to find shops with the cheapest prices, compare products, add opinions to shops and products, check for promotions and much more. The website is designed to help you find the best deals on alcohol products in your area. You can search for products by name, brand, or category, and compare prices from different shops. You can also read reviews from other users, and leave your own opinions on shops and products. The website also has a promotions section, where you can find the latest deals and discounts on alcohol products. Whether you're looking for a specific product, or just want to see what's on offer, AlkoLove has you covered.
 
 ### Features
 - Find shops with the cheapest prices
@@ -17,7 +17,7 @@ AlkoCheck is a website that allows you to find shops with the cheapest prices, c
 - Find the latest deals and discounts on alcohol products
 
 ### How to use
-1. Go to [AlkoCheck](https://alkocheck.109218.workers.dev/)
+1. Go to [AlkoLove](https://alkolove.109218.workers.dev/)
 2. Search for products by name, brand, or category
 3. Compare prices from different shops
 4. Read reviews from other users
