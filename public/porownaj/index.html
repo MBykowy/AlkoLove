@@ -919,6 +919,54 @@
 			</article>
 
 			<!-- #CUSTOM# -->
+
+
+			<!-- CUSTOM CSS code -->
+
+			<style>
+				#content {
+					text-align: center;
+					font-family: Arial, sans-serif;
+					color: #333;
+					padding: 20px;
+					background-color: #f9f9f9;
+					border-radius: 5px;
+					box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+					margin: 0 auto;
+					width: 50%;
+				}
+
+				#content form {
+					display: flex;
+					justify-content: center;
+					gap: 10px;
+					margin-bottom: 20px;
+				}
+
+				#content select {
+					padding: 5px;
+					font-size: 16px;
+				}
+
+				#content button {
+					padding: 5px 10px;
+					font-size: 16px;
+					background-color: #4CAF50;
+					color: white;
+					border: none;
+					border-radius: 5px;
+					cursor: pointer;
+				}
+
+				#content button:hover {
+					background-color: #45a049;
+				}
+
+				#productComparison {
+					margin-top: 20px;
+				}
+			</style>
+
 			<article id="content" class="clearfix" itemtype="https://schema.org/CreativeWork" itemscope>
 				<form id="productForm">
 					<select id="productSelect1">
@@ -927,9 +975,9 @@
 					<select id="productSelect2">
 						<!-- Options will be populated dynamically -->
 					</select>
-					<button type="submit" class="center-vertical">Compare!</button>
+					<button type="submit" class="center-vertical">Porównaj!</button>
 				</form>
-				<div id="productComparison">placeholder</div>
+				<div id="productComparison"></div>
 
 
 
@@ -1010,13 +1058,25 @@
 							})
 							// rest of your code
 							.then(([product1, product2]) => {
+								const oplacalnosc1 = (product1.pojemnosc * product1.zawartosc_alk) / product1.cena;
+								const oplacalnosc2 = (product2.pojemnosc * product2.zawartosc_alk) / product2.cena;
 								// Compare the products and display the comparison
 								let html = '';
-								html += `<h2>Comparison</h2>`;
-								html += `<div>Product 1: ${product1.nazwa} vs Product 2: ${product2.nazwa}</div>`;
+								html += `<img src="${product1.obraz}" alt="${product1.nazwa}" style="width: 200px; height: auto; margin-right: 20px;"> vs <img src="${product2.obraz}" alt="${product2.nazwa}" style="width: 200px; height: auto; margin-left: 20px;">`;
+								html += `<div style="font-weight: bold; font-size: 1.5em;">${product1.nazwa} vs ${product2.nazwa}</div>`;
+								html += `<div>${product1.producent}	 vs	 ${product2.producent}</div>`;
+								if (product1.typ !== product2.typ) {
+									html += `<div>${product1.typ} vs ${product2.typ}</div>`;
+								}
+								html += `<div>${product1.gatunek} vs ${product2.gatunek}</div>`;
+								html += `<h2>Wyniki</h2>`;
+								html += `<div>${product1.nazwa} vs ${product2.nazwa}</div>`;
 								html +=
-									`<div>Alcohol content: ${product1.zawartosc_alk}% vs ${product2.zawartosc_alk}%</div>`;
-								html += `<div>Price: ${product1.cena} zł vs ${product2.cena} zł</div>`;
+									`<div>Zawartość alkocholu: ${product1.zawartosc_alk}% vs ${product2.zawartosc_alk}%</div>`;
+								html += `<div>Cena: ${product1.cena} zł vs ${product2.cena} zł</div>`;
+								html += `<div>Pojemność: ${product1.pojemnosc} ml vs ${product2.pojemnosc} ml</div>`;
+								html += `<div>Opłacalność: ${oplacalnosc1.toFixed(2)} pkt vs ${oplacalnosc2.toFixed(2)} pkt</div>`;
+
 								// Add more comparisons as needed
 								document.getElementById('productComparison').innerHTML = html;
 							});
