@@ -822,7 +822,8 @@
 						<ul id="menu-main-menu" class="top-menu opener-icons-on">
 							<li id="menu-item-11577"
 								class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-11577 normal-menu">
-								<a href="/"><span>Strona główna</span></a></li>
+								<a href="/"><span>Strona główna</span></a>
+							</li>
 							<li id="menu-item-11723"
 								class="menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-parent-item menu-item-11723 normal-menu">
 								<a href="/sprawdz/"><span>Sprawdź</span></a><i tabindex="0"
@@ -830,30 +831,38 @@
 								<ul class="sub-menu">
 									<li id="menu-item-11724"
 										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11724">
-										<a href="/wyszukiwarka/"><span>Wyszukiwarka</span></a></li>
+										<a href="/wyszukiwarka/"><span>Wyszukiwarka</span></a>
+									</li>
 									<li id="menu-item-11725"
 										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11725">
-										<a href="/oceny/"><span>Oceny</span></a></li>
+										<a href="/oceny/"><span>Oceny</span></a>
+									</li>
 									<li id="menu-item-11726"
 										class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-11600 current_page_item menu-item-11726">
-										<a href="/porownaj/"><span>Porównaj</span></a></li>
+										<a href="/porownaj/"><span>Porównaj</span></a>
+									</li>
 									<li id="menu-item-11727"
 										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11727">
-										<a href="/filtrowanie/"><span>Filtrowanie</span></a></li>
+										<a href="/filtrowanie/"><span>Filtrowanie</span></a>
+									</li>
 									<li id="menu-item-11728"
 										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11728">
-										<a href="/sklepy-w-okolicy/"><span>Sklepy w okolicy</span></a></li>
+										<a href="/sklepy-w-okolicy/"><span>Sklepy w okolicy</span></a>
+									</li>
 								</ul>
 							</li>
 							<li id="menu-item-11789"
 								class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11789 normal-menu">
-								<a href="/logowanie/"><span>Logowanie</span></a></li>
+								<a href="/logowanie/"><span>Logowanie</span></a>
+							</li>
 							<li id="menu-item-11790"
 								class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11790 normal-menu">
-								<a href="/rejestracja/"><span>Rejestracja</span></a></li>
+								<a href="/rejestracja/"><span>Rejestracja</span></a>
+							</li>
 							<li id="menu-item-11581"
 								class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11581 normal-menu">
-								<a href="/contact/"><span>O nas</span></a></li>
+								<a href="/contact/"><span>O nas</span></a>
+							</li>
 						</ul>
 					</div>
 				</nav>
@@ -908,100 +917,116 @@
 					</div>
 				</div>
 			</article>
+
 			<!-- #CUSTOM# -->
-			<script type="text/javascript">
-window.addEventListener('load', function() {
-    fetch('/api/products')
-        .then(response => response.json())
-        .then(products => {
-            const product1Select = document.getElementById('product1');
-            const product2Select = document.getElementById('product2');
-
-            for (const product of products) {
-                const option1 = document.createElement('option');
-                option1.value = product.id_produktow;
-                option1.textContent = product.nazwa;
-                product1Select.appendChild(option1);
-
-                const option2 = document.createElement('option');
-                option2.value = product.id_produktow;
-                option2.textContent = product.nazwa;
-                product2Select.appendChild(option2);
-            }
-        });
-});
-document.getElementById('productComparisonForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const product1Id = document.getElementById('product1').value;
-    const product2Id = document.getElementById('product2').value;
-
-    Promise.all([
-        fetch(`/wyszukiwarka?nazwa=${encodeURIComponent(product1Id)}`),
-        fetch(`/wyszukiwarka?nazwa=${encodeURIComponent(product2Id)}`)
-    ])
-    .then(responses => Promise.all(responses.map(response => response.json())))
-    .then(([product1, product2]) => {
-        const comparisonResult = compareProducts(product1, product2);
-        displayComparisonResult(comparisonResult);
-    });
-});
-
-function compareProducts(product1, product2) {
-    // Compare the cena, pojemność, and zawartość_alk properties of the products
-    const cenaEqual = product1.cena === product2.cena;
-    const pojemnośćEqual = product1.pojemność === product2.pojemność;
-    const zawartość_alkEqual = product1.zawartość_alk === product2.zawartość_alk;
-
-    return { cenaEqual, pojemnośćEqual, zawartość_alkEqual };
-}
-
-function displayComparisonResult(result) {
-    // Display the comparison result
-    const resultElement = document.getElementById('comparisonResult');
-    resultElement.innerHTML = `
-        Cena: ${result.cenaEqual ? 'Equal' : 'Not equal'}<br>
-        Pojemność: ${result.pojemnośćEqual ? 'Equal' : 'Not equal'}<br>
-        Zawartość alkoholu: ${result.zawartość_alkEqual ? 'Equal' : 'Not equal'}
-    `;
-}
-			</script>
 			<article id="content" class="clearfix" itemtype="https://schema.org/CreativeWork" itemscope>
-				<div class="content-limiter">
-					<div id="col-mask">
-			
-						<div id="post-11600" class="content-box post-11600 page type-page status-publish">
-							<div class="formatter">
-								<div class="real-content" itemprop="text">
-									<div class="clear"></div>
-			
-									<!-- Add product comparison dropdowns here -->
-									<form id="productComparisonForm">
-										<label for="product1">Product 1:</label>
-										<select id="product1" name="product1">
-											<!-- Options will be populated with JavaScript -->
-										</select>
-			
-										<label for="product2">Product 2:</label>
-										<select id="product2" name="product2">
-											<!-- Options will be populated with JavaScript -->
-										</select>
-			
-										<button type="submit">Compare</button>
-									</form>
-			
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</article>
-			<!-- #KONIEC CUSTOM# -->
-		</div>
-	
+				<form id="productForm">
+					<select id="productSelect1">
+						<!-- Options will be populated dynamically -->
+					</select>
+					<select id="productSelect2">
+						<!-- Options will be populated dynamically -->
+					</select>
+					<button type="submit" class="center-vertical">Compare!</button>
+				</form>
+				<div id="productComparison">placeholder</div>
 
-	
-	<!-- Rest of the HTML code -->
+
+
+				<!-- Custom JavaScript code -->
+
+
+
+				<script type="module">
+					// Fetch all products on page load and populate the dropdown menus
+					fetch('/porownaj/produkty')
+						.then(response => {
+							console.log('HTTP status code:', response.status);
+							if (!response.ok) {
+								return response.text().then(text => {
+									console.log('Response body:', text);
+									throw new Error('Network response was not ok');
+								});
+							}
+							return response.text();
+						})
+						// rest of your code
+						.then(data => {
+							if (!data) {
+								throw new Error('No data returned from server');
+							}
+							return JSON.parse(data);
+						})
+						.then(products => {
+							const select1 = document.getElementById('productSelect1');
+							const select2 = document.getElementById('productSelect2');
+							products.forEach(product => {
+								console.log('Product:', product);
+								const option1 = document.createElement('option');
+								option1.value = product.nazwa;
+								option1.text = product.nazwa;
+								select1.add(option1);
+
+								const option2 = document.createElement('option');
+								option2.value = product.nazwa;
+								option2.text = product.nazwa;
+								select2.add(option2);
+							});
+						})
+						.catch(error => {
+							console.error('There has been a problem with your fetch operation:', error);
+						});
+
+					document.getElementById('productForm').addEventListener('submit', function (e) {
+						e.preventDefault();
+
+						// Get the select elements
+						const select1 = document.getElementById('productSelect1');
+						const select2 = document.getElementById('productSelect2');
+
+						// Get the selected values
+						const productId1 = select1.value;
+						const productId2 = select2.value;
+
+						console.log('Selected product 1:', productId1);
+						console.log('Selected product 2:', productId2);
+
+						// Fetch the details of the two selected products
+						Promise.all([
+								fetch(`/wyszukiwarka?nazwa=${encodeURIComponent(productId1)}`),
+								fetch(`/wyszukiwarka?nazwa=${encodeURIComponent(productId2)}`)
+							])
+							.then(responses => {
+								responses.forEach((response, i) => {
+									if (!response.ok) {
+										console.log(`Response ${i+1} status code:`, response.status);
+										return response.text().then(text => {
+											console.log(`Response ${i+1} body:`, text);
+											throw new Error('Network response was not ok');
+										});
+									}
+								});
+								return Promise.all(responses.map(response => response.json()));
+							})
+							// rest of your code
+							.then(([product1, product2]) => {
+								// Compare the products and display the comparison
+								let html = '';
+								html += `<h2>Comparison</h2>`;
+								html += `<div>Product 1: ${product1.nazwa} vs Product 2: ${product2.nazwa}</div>`;
+								html +=
+									`<div>Alcohol content: ${product1.zawartosc_alk}% vs ${product2.zawartosc_alk}%</div>`;
+								html += `<div>Price: ${product1.cena} zł vs ${product2.cena} zł</div>`;
+								// Add more comparisons as needed
+								document.getElementById('productComparison').innerHTML = html;
+							});
+					});
+				</script>
+		</div>
+		<!--Koniec Custom-->
+
+
+		<!-- Rest of the HTML code -->
 		<!-- #mid -->
 
 		<footer id="footer" class="to-move narrow classic" itemtype="https://schema.org/WPFooter" itemscope>
