@@ -102,7 +102,7 @@ async function fetchAllProducts(client: Client) {
   await client.connect();
   const {
     rows: productRows
-  } = await client.query('SELECT * FROM produkty ORDER BY cena ASC');
+  } = await client.query('SELECT * FROM produkty ORDER BY nazwa ASC');
   for (let product of productRows) {
     const {
       rows: shopRows
