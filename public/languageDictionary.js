@@ -24,6 +24,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const napisWgSwoichPreferencji = document.getElementById("wedlugSwoichPreferencji")
     const napisZnajdz = document.getElementById("znajdz")
     const napisNajlepszeMiejsce = document.getElementById("najMiejsce")
+    const napisOdkryjNowe = document.getElementById("odkryjNowe")
+    const napisZnajdzSwoje = document.getElementById("znajdzSwoje")
+    const napisTwojeOpinie = document.getElementById("twojeOpinie")
+    const napisNieCzekaj = document.getElementById("nieCzekaj")
+    const napisNaszKontakt = document.getElementById("naszKontakt")
 
     const translations = {
         en: {
@@ -38,8 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
             napisLogowanie: "Login",
             napisRejestracja: "Register",
             przyciskSzukaj: "search",
-            rozwinientyTekst: "Choosing alkohol easier thanks to" +
-                "Alkolove",
+            rozwinientyTekst: "Choosing alkohol easier thanks to<br>Alkolove",
             tekstZMilosciDoPrzyjemnosci: "From love to pleasure",
             tekstRozpocznij: "BEGIN",
             napisOceniaj: "Rate",
@@ -50,6 +54,14 @@ document.addEventListener('DOMContentLoaded', function () {
             napisSwojeUlubioneMarki: "Your favourite brands",
             napisFiltruj: "Filter",
             napisWgSwoichPreferencji: "According to your preferences",
+            napisOdkryjNowe: "DISCOVER NEW FLAVOURS WITH ALKOLOVE!<br>FIND YOUR FAVOURITE BEVERAGES<br>FROM A WIDE ASSORTMENT<br>OF PRODUCTS ON<br>OUR PLATFORM",
+            napisZnajdzSwoje: "Find your favourite beverages in shops in<br>your area! Use the shop localization<br>function.",
+            napisTwojeOpinie: "YOUR OPINION MATTERS!<br>RATE YOUR FAVOURITE BEVERAGES<br>AND HELP US IMPROVE<br>ALKOLOVE.",
+            napisNieCzekaj: "DON'T WAIT LONGER! JOIN THE ALKOLOVE<br>COMMUNITY TODAY AND ENJOY THE SPECIAL<br>EXPERIENCE OF BROWSING ALCOHOL ONLINE.<br>UNFORGETTABLE FLAVOURS ARE WAITING FOR YOU. START<br>EXPLORING OUR OFFER TODAY!",
+            napisNaszKontakt: "Contact:<br>" +
+                "Phone: 123-456-7890<br>" +
+                "Email: goscieodstronwww@gmail.com<br>" +
+                "Office: Republika Kuby, Leoncio Vidal, Santa Clara 112"
 
         },
         pl: {
@@ -64,8 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
             napisLogowanie: "Logowanie",
             napisRejestracja: "Rejestracja",
             przyciskSzukaj: "szukaj",
-            rozwinientyTekst: "Wybór alkoholu prostszy dzięki" +
-                "Alkolove",
+            rozwinientyTekst: "Wybór alkoholu prostszy dzięki<br>Alkolove",
             tekstZMilosciDoPrzyjemnosci: "Z miłości do przyjemności",
             tekstRozpocznij: "ROZPOCZNIJ",
             napisOceniaj: "Oceniaj",
@@ -76,7 +87,14 @@ document.addEventListener('DOMContentLoaded', function () {
             napisSwojeUlubioneMarki: "Swoje ulubione marki",
             napisFiltruj: "Filtruj",
             napisWgSwoichPreferencji: "Według swoich preferencji",
-
+            napisOdkryjNowe: "ODKRYJ NOWE SMAKI Z ALKOLOVE!<br>ZNAJDŹ SWOJE ULUBIONE TRUNKI<br>W SZEROKIM WYBORZE<br>PRODUKTÓW DOSTĘPNYCH NA<br>NASZEJ PLATFORMIE",
+            napisZnajdzSwoje: "Znajdź swoje ulubione trunki w sklepach w<br>swojej okolicy! Użyj funkcji lokalizacji<br>sklepów.",
+            napisTwojeOpinie: "TWOJE OPINIE MAJĄ ZNACZENIE!<br>OCENIAJ SWOJE ULUBIONE TRUNKI<br>I POMÓŻ NAM ULEPSZAĆ OFERTĘ<br>ALKOLOVE.",
+            napisNieCzekaj: "NIE CZEKAJ DŁUŻEJ! DOŁĄCZ DO SPOŁECZNOŚCI<br>ALKOLOVE JUŻ TERAZ I CIESZ SIĘ WYJĄTKOWYMI<br>DOŚWIADCZENIAMI Z PRZEGLĄDANIEM ALKOHOLI ONLINE.<br>NIEZAPOMNIANE SMAKI CZEKAJĄ NA CIEBIE. ZACZNIJ<br>EKSPLOROWAĆ NASZĄ OFERTĘ JUŻ DZIŚ!",
+            napisNaszKontakt: "Kontakt:<br>" +
+                "Telefon: 123-456-7890<br>" +
+                "Email: goscieodstronwww@gmail.com<br>" +
+                "Biuro: Republika Kuby, Leoncio Vidal, Santa Clara 112"
         }
     };
 
