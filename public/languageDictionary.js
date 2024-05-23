@@ -8,14 +8,22 @@ document.addEventListener('DOMContentLoaded', function () {
     const napisPorownaj  = document.getElementById("menu-item-11726");
     const napisFiltrowanie  = document.getElementById("menu-item-11727");
     const napisSklepyWOkolicy  = document.getElementById("menu-item-11728");
+    const napisLogowanie  = document.getElementById("menu-item-11789");
+    const napisRejestracja  = document.getElementById("menu-item-11790");
     const przyciskSzukaj = document.getElementById("search-button");
     const rozwinientyTekst = document.getElementById("rozwijanyTekst");
     const tekstZMilosciDoPrzyjemnosci = document.getElementById("tekstZMilosci");
     const tekstRozpocznij = document.getElementById("tekstRozpocznij");
     const napisOceniaj = document.getElementById("napisOceniaj");
     const napisSklepyWTwojej = document.getElementById("sklepyWTwojej")
-
-
+    const napisWyszukaj = document.getElementById("napisWyszukaj")
+    const napisSwojZamierzonyProdukt = document.getElementById("swojZamierzonyProdukt")
+    const napisPorownanie = document.getElementById("porownanie")
+    const napisSwojeUlubioneMarki = document.getElementById("swojeUlubioneMarki")
+    const napisFiltruj = document.getElementById("filtr")
+    const napisWgSwoichPreferencji = document.getElementById("wedlugSwoichPreferencji")
+    const napisZnajdz = document.getElementById("znajdz")
+    const napisNajlepszeMiejsce = document.getElementById("najMiejsce")
 
     const translations = {
         en: {
@@ -27,13 +35,21 @@ document.addEventListener('DOMContentLoaded', function () {
             napisPorownaj: "Compare",
             napisFiltrowanie: "Filter",
             napisSklepyWOkolicy: "Shops in the area",
+            napisLogowanie: "Login",
+            napisRejestracja: "Register",
             przyciskSzukaj: "search",
             rozwinientyTekst: "Choosing alkohol easier thanks to" +
                 "Alkolove",
             tekstZMilosciDoPrzyjemnosci: "From love to pleasure",
             tekstRozpocznij: "BEGIN",
             napisOceniaj: "Rate",
-            napisSklepyWTwojej: "Shops in your area"
+            napisSklepyWTwojej: "Shops in your area",
+            napisWyszukaj: "Search",
+            napisSwojZamierzonyProdukt: "Your intended item",
+            napisPorownanie: "Compare",
+            napisSwojeUlubioneMarki: "Your favourite brands",
+            napisFiltruj: "Filter",
+            napisWgSwoichPreferencji: "According to your preferences",
 
         },
         pl: {
@@ -45,13 +61,21 @@ document.addEventListener('DOMContentLoaded', function () {
             napisPorownaj: "Porównaj",
             napisFiltrowanie: "Filtruj",
             napisSklepyWOkolicy: "Sklepy w okolicy",
+            napisLogowanie: "Logowanie",
+            napisRejestracja: "Rejestracja",
             przyciskSzukaj: "szukaj",
             rozwinientyTekst: "Wybór alkoholu prostszy dzięki" +
                 "Alkolove",
             tekstZMilosciDoPrzyjemnosci: "Z miłości do przyjemności",
             tekstRozpocznij: "ROZPOCZNIJ",
             napisOceniaj: "Oceniaj",
-            napisSklepyWTwojej: "Sklepy w twojej okolicy"
+            napisSklepyWTwojej: "Sklepy w twojej okolicy",
+            napisWyszukaj: "Wyszukaj",
+            napisSwojZamierzonyProdukt: "Swój zamierzony produkt",
+            napisPorownanie: "Porównaj",
+            napisSwojeUlubioneMarki: "Swoje ulubione marki",
+            napisFiltruj: "Filtruj",
+            napisWgSwoichPreferencji: "Według swoich preferencji",
 
         }
     };
