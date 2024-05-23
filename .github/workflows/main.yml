@@ -15,5 +15,5 @@ jobs:
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          preCommands: npm install @cloudflare/kv-asset-handler@0.2.0, npm install @neondatabase/serverless
+          preCommands: npm install @cloudflare/kv-asset-handler, npm install @neondatabase/serverless
 
