@@ -3,16 +3,15 @@ name: Deploy
 on:
   push:
     branches:
-      - main  # Trigger the workflow on push or pull request to the main branch
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    name: Deploy
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Deploy to Cloudflare Workers with Wrangler
+      - uses: actions/checkout@v4
+      - name: Deploy
         uses: cloudflare/wrangler-action@v3
         with:
-          apiToken: ${{ secrets.CF_API_TOKEN }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
