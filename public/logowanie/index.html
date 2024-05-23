@@ -918,7 +918,56 @@
 					</div>
 				</div>
 			</article>
-
+				
+			<article id="login" class="clearfix" itemtype="https://schema.org/CreativeWork" itemscope>
+				<div class="content-limiter">
+					<div id="col-mask">
+						<div id="post-login" class="content-box post-login page type-page status-publish">
+							<div class="formatter">
+								<div class="real-content" itemprop="text">
+									<h2>Login</h2>
+									<form id="loginForm" action="/login" method="post">
+										<label for="email">Email:</label><br>
+										<input type="email" id="email" name="email" required><br>
+										<label for="password">Password:</label><br>
+										<input type="password" id="password" name="password" required><br>
+										<input type="submit" value="Login">
+									</form>
+									<div class="clear"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>
+			<script>
+				document.getElementById('loginForm').addEventListener('submit', async function(event) {
+					event.preventDefault();
+				
+					const email = document.getElementById('email').value;
+					const password = document.getElementById('password').value;
+				
+					const response = await fetch('/login', {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+						},
+						body: JSON.stringify({ email, password }),
+					});
+				
+					const data = await response.json();
+				
+					if (response.ok) {
+						// Login was successful
+						// Redirect to a new page, or update the UI
+						alert('Login successful!');
+					} else {
+						// There was an error
+						alert('Error: ' + data.message);
+					}
+				});
+				</script>
+		
 		</div>
 		<!-- #mid -->
 

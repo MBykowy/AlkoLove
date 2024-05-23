@@ -935,6 +935,62 @@
 				</div>
 			</article>
 
+
+
+
+
+			<form id="registrationForm">
+				<div>Dawid ma to naprawić w bazie</div>
+				<label for="email">Email:</label><br>
+				<input type="email" id="email" name="email" required><br>
+				<label for="password">Password:</label><br>
+				<input type="password" id="password" name="password" required><br>
+				<label for="name">Name:</label><br>
+				<input type="text" id="name" name="name" required><br>
+				<input type="submit" value="Register">
+			</form>
+			
+			<script>
+				document.getElementById('registrationForm').addEventListener('submit', async function(event) {
+					event.preventDefault();
+				
+					const email = document.getElementById('email').value;
+					const haslo = document.getElementById('password').value;
+					const nazwa = document.getElementById('name').value;
+					console.log(email, haslo, nazwa)
+				
+					try {
+						const response = await fetch('/register', {
+							method: 'POST',
+							headers: {
+								'Content-Type': 'application/json',
+							},
+							body: JSON.stringify({ email, haslo, nazwa }),
+						});
+				
+						if (!response.ok) {
+							throw new Error(`HTTP error! status: ${response.status}`);
+						}
+				
+						const data = await response.json();
+						if (data.status === 'success') {
+							document.getElementById('registrationForm').innerHTML = 'Registration successful!';
+						} else {
+							document.getElementById('registrationForm').innerHTML = 'Registration failed!';
+						}
+					} catch (error) {
+						console.error('An error occurred:', error);
+						document.getElementById('registrationForm').innerHTML = 'An error occurred. Please try again.';
+					}
+				});
+				</script>
+
+
+
+
+
+
+
 		</div>
 		<!-- #mid -->
 
