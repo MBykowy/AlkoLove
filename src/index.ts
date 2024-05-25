@@ -76,7 +76,12 @@ async function fetchProductData(client: Client, nazwa: string) {
   await client.connect();
   const {
     rows: productRows
-  } = await client.query('SELECT * FROM produkty WHERE nazwa = $1 ORDER BY cena ASC', [nazwa]);
+  } = await client.query(`
+    SELECT * 
+    FROM produkty 
+    WHERE nazwa % $1 
+    ORDER BY cena ASC, nazwa <-> $1 ASC
+  `, [nazwa]);
   for (let product of productRows) {
     const {
       rows: shopRows
