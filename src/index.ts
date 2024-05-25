@@ -53,6 +53,12 @@ async function handleEvent(event: FetchEvent) {
     return new Response(JSON.stringify(result), {
       status: 200
     });
+  } else if (pathname.startsWith('/filtrowanie/produkty')) {
+    const client = new Client(DATABASE_URL);
+    const rows = await fetchAllProducts(client);
+    return new Response(JSON.stringify(rows), {
+      status: 200
+    });
   }
 
 
@@ -95,9 +101,8 @@ async function fetchProductData(client: Client, nazwa: string) {
     }
   }
   await client.end();
-  return productRows[0]; // return the cheapest product
+  return productRows[0]; 
 }
-
 
 
 
