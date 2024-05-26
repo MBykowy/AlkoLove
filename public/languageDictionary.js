@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
+    console.log("Script loaded");
+
     const languageSelector = document.getElementById('language-selector');
     const napisStronaGlowna  = document.getElementById("menu-item-11577");
     const napisKontakt  = document.getElementById("menu-item-11581");
@@ -99,12 +101,14 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     function updateLanguage(language) {
+        console.log("Updating language to:", language);
         title.innerHTML = translations[language].title;
         content.innerHTML = translations[language].content;
     }
 
     languageSelector.addEventListener('change', function () {
         const selectedLanguage = languageSelector.value;
+        console.log("Selected language:", selectedLanguage);
         updateLanguage(selectedLanguage);
     });
 
