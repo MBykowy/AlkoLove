@@ -1,4 +1,4 @@
-import {
+  import {
   getAssetFromKV
 } from "@cloudflare/kv-asset-handler";
 import {
@@ -53,6 +53,12 @@ async function handleEvent(event: FetchEvent) {
     return new Response(JSON.stringify(result), {
       status: 200
     });
+  } else if (pathname.startsWith('/filtrowanie/produkty')) {
+    const client = new Client(DATABASE_URL);
+    const rows = await fetchAllProducts(client);
+    return new Response(JSON.stringify(rows), {
+      status: 200
+    });
   }
 
 
@@ -76,7 +82,12 @@ async function fetchProductData(client: Client, nazwa: string) {
   await client.connect();
   const {
     rows: productRows
-  } = await client.query('SELECT * FROM produkty WHERE nazwa = $1 ORDER BY cena ASC', [nazwa]);
+  } = await client.query(`
+    SELECT * 
+    FROM produkty 
+    WHERE nazwa % $1 
+    ORDER BY cena ASC, nazwa <-> $1 ASC
+  `, [nazwa]);
   for (let product of productRows) {
     const {
       rows: shopRows
@@ -90,9 +101,8 @@ async function fetchProductData(client: Client, nazwa: string) {
     }
   }
   await client.end();
-  return productRows[0]; // return the cheapest product
+  return productRows[0]; 
 }
-
 
 
 
@@ -102,7 +112,7 @@ async function fetchAllProducts(client: Client) {
   await client.connect();
   const {
     rows: productRows
-  } = await client.query('SELECT * FROM produkty ORDER BY cena ASC');
+  } = await client.query('SELECT * FROM produkty ORDER BY nazwa ASC');
   for (let product of productRows) {
     const {
       rows: shopRows
