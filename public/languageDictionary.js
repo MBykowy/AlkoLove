@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function updateLanguage(language) {
         console.log("Updating language to:", language);
-        title.innerHTML = translations[language].title;
+        napisStronaGlowna.innerHTML = translations[language].napisStronaGlowna;
         content.innerHTML = translations[language].content;
     }
 
