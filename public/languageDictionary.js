@@ -99,8 +99,8 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     function updateLanguage(language) {
-        title.textContent = translations[language].title;
-        content.textContent = translations[language].content;
+        title.innerHTML = translations[language].title;
+        content.innerHTML = translations[language].content;
     }
 
     languageSelector.addEventListener('change', function () {
