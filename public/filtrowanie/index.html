@@ -942,6 +942,18 @@
 								<!-- CUSTOM-->
 
 								<style>
+									.small-form input,
+									.small-form select {
+										width: 150px;
+										/* adjust as needed */
+									}
+
+									form input,
+									form select {
+										width: 150px;
+										/* adjust as needed */
+									}
+
 									#filterForm {
 										display: flex;
 										gap: 10px;
@@ -1019,6 +1031,30 @@
 										<!-- Options will be added here by the script -->
 									</select>
 									<button type="submit" id="gatunekFilterButton">Filter by gatunek</button>
+									<label for="typSelect">Typ:</label>
+									<select id="typSelect">
+										<option value="">All</option>
+										<!-- Options will be populated dynamically -->
+									</select>
+
+									<label for="cenaSelect">Cena:</label>
+									<select id="cenaSelect">
+										<option value="">All</option>
+										<option value="10-20">10-20</option>
+										<option value="20-30">20-30</option>
+										<!-- Add more options as needed -->
+									</select>
+
+									<label for="pojemnoscSelect">Pojemność:</label>
+									<select id="pojemnoscSelect">
+										<option value="">All</option>
+										<option value="0.5-1">0.5-1</option>
+										<option value="1-1.5">1-1.5</option>
+										<!-- Add more options as needed -->
+									</select>
+
+									<input type="submit" value="Filter">
+
 								</form>
 
 								<table id="productTable">
@@ -1033,7 +1069,6 @@
 											<th><button id="typButton">Typ</button></th>
 											<th><button id="opisButton">Opis</button></th>
 											<th><button id="gatunekButton">Gatunek</button></th>
-											<th><button id="czyPromocjaButton">Czy Promocja</button></th>
 											<th><button id="producentButton">Producent</button></th>
 										</tr>
 									</thead>
@@ -1046,6 +1081,7 @@
 
 								<!-- Custom-->
 								<script>
+									//SORT|||||||||||||||||||||||||||||||||||
 									const sortOrder = {
 										0: true,
 										1: true,
@@ -1095,14 +1131,9 @@
 										sortTable(8); // sort by 'gatunek'
 									});
 
-									document.getElementById('czyPromocjaButton').addEventListener('click', function () {
-										sortTable(9); // sort by 'czy_promocja'
-									});
-
 									document.getElementById('producentButton').addEventListener('click', function () {
 										sortTable(10); // sort by 'producent'
 									});
-
 
 									function sortTable(columnIndex) {
 										const table = document.getElementById('productTable');
@@ -1111,7 +1142,7 @@
 										// sort the rows based on the text in the specified column
 										rows.sort((rowA, rowB) => {
 											let comparison;
-											if (columnIndex === 1) { // if sorting by 'cena'
+											if (columnIndex === 1 || columnIndex === 3) { // if sorting by 'cena' or 'zawartosc_alk'
 												const valueA = parseFloat(rowA.cells[columnIndex].textContent);
 												const valueB = parseFloat(rowB.cells[columnIndex].textContent);
 												comparison = valueA - valueB;
@@ -1135,6 +1166,11 @@
 											table.appendChild(row);
 										}
 									}
+
+
+
+
+									//FILTER|||||||||||||||||||||||||||||||||||
 
 									function filter(Variable) {
 										const table = document.getElementById('productTable');
@@ -1206,6 +1242,9 @@
 									});
 
 
+
+
+									//FETCH|||||||||||||||||||||||||||||||||||
 									fetch('/porownaj/produkty')
 										.then(response => {
 											console.log('HTTP status code:', response.status);
@@ -1225,7 +1264,7 @@
 										})
 										.then(products => {
 											const productTable = document.getElementById('productTable');
-
+											// populate the table with the products
 											products.forEach(product => {
 												console.log('Product:', product);
 												const row = productTable.insertRow();
@@ -1239,7 +1278,6 @@
 												const cell8 = row.insertCell();
 												const cell9 = row.insertCell();
 												const cell10 = row.insertCell();
-												const cell11 = row.insertCell();
 												cell1.textContent = product.nazwa;
 												cell2.textContent = product.cena;
 												cell3.textContent = product.shop.nazwa;
@@ -1256,15 +1294,45 @@
 												cell7.textContent = product.typ;
 												cell8.textContent = product.opis;
 												cell9.textContent = product.gatunek;
-												cell10.textContent = product.czy_promocja;
-												cell11.textContent = product.producent;
+												cell10.textContent = product.producent;
 											});
 											const shopNames = [...new Set(products.map(product => product.shop
-											.nazwa))]; // get unique shop names
+												.nazwa))]; // get unique shop names
 											const producentNames = [...new Set(products.map(product => product
-											.producent))]; // get unique producent names
+												.producent))]; // get unique producent names
 											const gatunekNames = [...new Set(products.map(product => product
-											.gatunek))]; // get unique gatunek names
+												.gatunek))]; // get unique gatunek names
+												
+												// get unique typ names, cena ranges, and pojemnosc ranges, and populate the select elements
+											const typNames = [...new Set(products.map(product => product.typ))]; // get unique typ names
+											const typSelect = document.getElementById('typSelect');
+
+											for (const typName of typNames) {
+												const option = document.createElement('option');
+												option.value = typName;
+												option.textContent = typName;
+												typSelect.appendChild(option);
+											}
+
+											document.getElementById('filterForm').addEventListener('submit', function (event) {
+												event.preventDefault(); // prevent the form from being submitted normally
+
+												const typ = typSelect.value;
+												const cenaRange = document.getElementById('cenaSelect').value.split('-');
+												const pojemnoscRange = document.getElementById('pojemnoscSelect').value.split('-');
+
+												// filter the products based on the selected values
+												const filteredProducts = products.filter(product => {
+													return (!typ || product.typ === typ) &&
+														(!cenaRange[0] || (product.cena >= cenaRange[0] && product.cena <=
+															cenaRange[1])) &&
+														(!pojemnoscRange[0] || (product.pojemnosc >= pojemnoscRange[0] &&
+															product.pojemnosc <= pojemnoscRange[1]));
+												});
+
+												// do something with filteredProducts
+											});
+
 
 											const shopSelect = document.getElementById('shopSelect');
 											const producentSelect = document.getElementById('producentSelect');
