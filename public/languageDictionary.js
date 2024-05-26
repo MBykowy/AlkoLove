@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
             napisSklepyWOkolicy: "Shops in the area",
             napisLogowanie: "Login",
             napisRejestracja: "Register",
-            przyciskSzukaj: "search",
+            przyciskSzukaj: "Search",
             rozwinientyTekst: "Choosing alkohol easier thanks to<br>Alkolove",
             tekstZMilosciDoPrzyjemnosci: "From love to pleasure",
             tekstRozpocznij: "BEGIN",
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function updateLanguage(language) {
         console.log("Updating language to:", language);
-        napisStronaGlowna.innerHTML = translations[language].napisStronaGlowna;
+        title.innerHTML = translations[language].title;
         content.innerHTML = translations[language].content;
     }
 
