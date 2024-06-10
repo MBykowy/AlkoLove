@@ -59,6 +59,12 @@ async function handleEvent(event: FetchEvent) {
     return new Response(JSON.stringify(rows), {
       status: 200
     });
+  } else if (pathname.startsWith('/sklepy/lokalizacje')) {
+    const client = new Client(DATABASE_URL);
+    const rows = await fetchAllShopLocalizations(client);
+    return new Response(JSON.stringify(rows), {
+      status: 200
+    });
   }
 
 
@@ -141,6 +147,17 @@ async function registerUser(client: Client, data: any) {
   return {
     status: 'success'
   };
+}
+
+
+//Znalezienie wszystkich lokalizacji sklepów
+async function fetchAllShopLocalizations(client: Client) {
+  await client.connect();
+  const { rows: shopLocalizationRows } = await client.query('SELECT adres FROM sklepy_adres');
+  const stringifiedRows = JSON.stringify(shopLocalizationRows);
+  console.log('Shop Localization Rows:', stringifiedRows); // Logging stringified rows
+  await client.end();
+  return stringifiedRows;
 }
 
 //Logowanie

@@ -394,403 +394,414 @@
 		href="/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css" type="text/css" media="all">
 	<link rel="stylesheet" id="font-awesome-4-shim-css"
 		href="/wp-content/plugins/elementor/assets/lib/font-awesome/css/v4-shims.min.css" type="text/css" media="all">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 	<script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
 	<script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js"></script>
-	<script type="text/javascript" id="wp-dark-mode-js-extra">
-		/* <![CDATA[ */
-		var wp_dark_mode_json = {
-			"ajax_url": "\/wp-admin\/admin-ajax.php",
-			"nonce": "ce1f666842",
-			"is_pro": "",
-			"version": "5.0.4",
-			"is_excluded": "",
-			"excluded_elements": " #wpadminbar, .wp-dark-mode-switch, .elementor-button-content-wrapper",
-			"options": {
-				"frontend_enabled": true,
-				"frontend_mode": "device",
-				"frontend_time_starts": "06:00 PM",
-				"frontend_time_ends": "06:00 AM",
-				"frontend_custom_css": "",
-				"frontend_remember_choice": true,
-				"admin_enabled": false,
-				"admin_enabled_block_editor": true,
-				"floating_switch_enabled": true,
-				"floating_switch_style": 1,
-				"floating_switch_size": "1",
-				"floating_switch_size_custom": 100,
-				"floating_switch_position": "right",
-				"floating_switch_position_side": "right",
-				"floating_switch_position_side_value": 10,
-				"floating_switch_position_bottom_value": 10,
-				"floating_switch_enabled_attention_effect": false,
-				"floating_switch_attention_effect": "wobble",
-				"floating_switch_enabled_cta": false,
-				"floating_switch_cta_text": "Enable Dark Mode",
-				"floating_switch_cta_color": "#ffffff",
-				"floating_switch_cta_background": "#000000",
-				"floating_switch_enabled_custom_icons": false,
-				"floating_switch_icon_light": "",
-				"floating_switch_icon_dark": "",
-				"floating_switch_enabled_custom_texts": false,
-				"floating_switch_text_light": "Light",
-				"floating_switch_text_dark": "Dark",
-				"menu_switch_enabled": false,
-				"content_switch_enabled_top_of_posts": false,
-				"content_switch_enabled_top_of_pages": false,
-				"content_switch_style": 1,
-				"color_mode": "automatic",
-				"color_presets": [{
-					"name": "Gold",
-					"bg": "#000",
-					"secondary_bg": "#000",
-					"text": "#dfdedb",
-					"link": "#e58c17",
-					"link_hover": "#e58c17",
-					"input_bg": "#000",
-					"input_text": "#dfdedb",
-					"input_placeholder": "#dfdedb",
-					"button_text": "#dfdedb",
-					"button_hover_text": "#dfdedb",
-					"button_bg": "#141414",
-					"button_hover_bg": "#141414",
-					"button_border": "#1e1e1e",
-					"enable_scrollbar": false,
-					"scrollbar_track": "#141414",
-					"scrollbar_thumb": "#dfdedb"
-				}, {
-					"name": "Sapphire",
-					"bg": "#1B2836",
-					"secondary_bg": "#1B2836",
-					"text": "#fff",
-					"link": "#459BE6",
-					"link_hover": "#459BE6",
-					"input_bg": "#1B2836",
-					"input_text": "#fff",
-					"input_placeholder": "#fff",
-					"button_text": "#fff",
-					"button_hover_text": "#fff",
-					"button_bg": "#2f3c4a",
-					"button_hover_bg": "#2f3c4a",
-					"button_border": "#394654",
-					"enable_scrollbar": false,
-					"scrollbar_track": "#1B2836",
-					"scrollbar_thumb": "#fff"
-				}, {
-					"name": "Fuchsia",
-					"bg": "#1E0024",
-					"secondary_bg": "#1E0024",
-					"text": "#fff",
-					"link": "#E251FF",
-					"link_hover": "#E251FF",
-					"input_bg": "#1E0024",
-					"input_text": "#fff",
-					"input_placeholder": "#fff",
-					"button_text": "#fff",
-					"button_hover_text": "#fff",
-					"button_bg": "#321438",
-					"button_hover_bg": "#321438",
-					"button_border": "#321438",
-					"enable_scrollbar": false,
-					"scrollbar_track": "#1E0024",
-					"scrollbar_thumb": "#fff"
-				}, {
-					"name": "Rose",
-					"bg": "#270000",
-					"secondary_bg": "#270000",
-					"text": "#fff",
-					"link": "#FF7878",
-					"link_hover": "#FF7878",
-					"input_bg": "#270000",
-					"input_text": "#fff",
-					"input_placeholder": "#fff",
-					"button_text": "#fff",
-					"button_hover_text": "#fff",
-					"button_bg": "#3b1414",
-					"button_hover_bg": "#3b1414",
-					"button_border": "#451e1e",
-					"enable_scrollbar": false,
-					"scrollbar_track": "#270000",
-					"scrollbar_thumb": "#fff"
-				}, {
-					"name": "Violet",
-					"bg": "#160037",
-					"secondary_bg": "#160037",
-					"text": "#EBEBEB",
-					"link": "#B381FF",
-					"link_hover": "#B381FF",
-					"input_bg": "#160037",
-					"input_text": "#EBEBEB",
-					"input_placeholder": "#EBEBEB",
-					"button_text": "#EBEBEB",
-					"button_hover_text": "#EBEBEB",
-					"button_bg": "#2a144b",
-					"button_hover_bg": "#2a144b",
-					"button_border": "#341e55",
-					"enable_scrollbar": false,
-					"scrollbar_track": "#160037",
-					"scrollbar_thumb": "#EBEBEB"
-				}, {
-					"name": "Pink",
-					"bg": "#121212",
-					"secondary_bg": "#121212",
-					"text": "#E6E6E6",
-					"link": "#FF9191",
-					"link_hover": "#FF9191",
-					"input_bg": "#121212",
-					"input_text": "#E6E6E6",
-					"input_placeholder": "#E6E6E6",
-					"button_text": "#E6E6E6",
-					"button_hover_text": "#E6E6E6",
-					"button_bg": "#262626",
-					"button_hover_bg": "#262626",
-					"button_border": "#303030",
-					"enable_scrollbar": false,
-					"scrollbar_track": "#121212",
-					"scrollbar_thumb": "#E6E6E6"
-				}, {
-					"name": "Kelly",
-					"bg": "#000A3B",
-					"secondary_bg": "#000A3B",
-					"text": "#FFFFFF",
-					"link": "#3AFF82",
-					"link_hover": "#3AFF82",
-					"input_bg": "#000A3B",
-					"input_text": "#FFFFFF",
-					"input_placeholder": "#FFFFFF",
-					"button_text": "#FFFFFF",
-					"button_hover_text": "#FFFFFF",
-					"button_bg": "#141e4f",
-					"button_hover_bg": "#141e4f",
-					"button_border": "#1e2859",
-					"enable_scrollbar": false,
-					"scrollbar_track": "#000A3B",
-					"scrollbar_thumb": "#FFFFFF"
-				}, {
-					"name": "Magenta",
-					"bg": "#171717",
-					"secondary_bg": "#171717",
-					"text": "#BFB7C0",
-					"link": "#F776F0",
-					"link_hover": "#F776F0",
-					"input_bg": "#171717",
-					"input_text": "#BFB7C0",
-					"input_placeholder": "#BFB7C0",
-					"button_text": "#BFB7C0",
-					"button_hover_text": "#BFB7C0",
-					"button_bg": "#2b2b2b",
-					"button_hover_bg": "#2b2b2b",
-					"button_border": "#353535",
-					"enable_scrollbar": false,
-					"scrollbar_track": "#171717",
-					"scrollbar_thumb": "#BFB7C0"
-				}, {
-					"name": "Green",
-					"bg": "#003711",
-					"secondary_bg": "#003711",
-					"text": "#FFFFFF",
-					"link": "#84FF6D",
-					"link_hover": "#84FF6D",
-					"input_bg": "#003711",
-					"input_text": "#FFFFFF",
-					"input_placeholder": "#FFFFFF",
-					"button_text": "#FFFFFF",
-					"button_hover_text": "#FFFFFF",
-					"button_bg": "#144b25",
-					"button_hover_bg": "#144b25",
-					"button_border": "#1e552f",
-					"enable_scrollbar": false,
-					"scrollbar_track": "#003711",
-					"scrollbar_thumb": "#FFFFFF"
-				}, {
-					"name": "Orange",
-					"bg": "#23243A",
-					"secondary_bg": "#23243A",
-					"text": "#D6CB99",
-					"link": "#FF9323",
-					"link_hover": "#FF9323",
-					"input_bg": "#23243A",
-					"input_text": "#D6CB99",
-					"input_placeholder": "#D6CB99",
-					"button_text": "#D6CB99",
-					"button_hover_text": "#D6CB99",
-					"button_bg": "#37384e",
-					"button_hover_bg": "#37384e",
-					"button_border": "#414258",
-					"enable_scrollbar": false,
-					"scrollbar_track": "#23243A",
-					"scrollbar_thumb": "#D6CB99"
-				}, {
-					"name": "Yellow",
-					"bg": "#151819",
-					"secondary_bg": "#151819",
-					"text": "#D5D6D7",
-					"link": "#DAA40B",
-					"link_hover": "#DAA40B",
-					"input_bg": "#151819",
-					"input_text": "#D5D6D7",
-					"input_placeholder": "#D5D6D7",
-					"button_text": "#D5D6D7",
-					"button_hover_text": "#D5D6D7",
-					"button_bg": "#292c2d",
-					"button_hover_bg": "#292c2d",
-					"button_border": "#333637",
-					"enable_scrollbar": false,
-					"scrollbar_track": "#151819",
-					"scrollbar_thumb": "#D5D6D7"
-				}, {
-					"name": "Facebook",
-					"bg": "#18191A",
-					"secondary_bg": "#18191A",
-					"text": "#DCDEE3",
-					"link": "#2D88FF",
-					"link_hover": "#2D88FF",
-					"input_bg": "#18191A",
-					"input_text": "#DCDEE3",
-					"input_placeholder": "#DCDEE3",
-					"button_text": "#DCDEE3",
-					"button_hover_text": "#DCDEE3",
-					"button_bg": "#2c2d2e",
-					"button_hover_bg": "#2c2d2e",
-					"button_border": "#363738",
-					"enable_scrollbar": false,
-					"scrollbar_track": "#18191A",
-					"scrollbar_thumb": "#DCDEE3"
-				}, {
-					"name": "Twitter",
-					"bg": "#141d26",
-					"secondary_bg": "#141d26",
-					"text": "#fff",
-					"link": "#1C9CEA",
-					"link_hover": "#1C9CEA",
-					"input_bg": "#141d26",
-					"input_text": "#fff",
-					"input_placeholder": "#fff",
-					"button_text": "#fff",
-					"button_hover_text": "#fff",
-					"button_bg": "#28313a",
-					"button_hover_bg": "#28313a",
-					"button_border": "#323b44",
-					"enable_scrollbar": false,
-					"scrollbar_track": "#141d26",
-					"scrollbar_thumb": "#fff"
-				}],
-				"color_preset_id": 0,
-				"color_filter_brightness": 100,
-				"color_filter_contrast": 90,
-				"color_filter_grayscale": 0,
-				"color_filter_sepia": 10,
-				"image_replaces": [],
-				"image_enabled_low_brightness": true,
-				"image_brightness": 80,
-				"image_low_brightness_excludes": [],
-				"image_enabled_low_grayscale": false,
-				"image_grayscale": 0,
-				"image_low_grayscale_excludes": [],
-				"video_replaces": [],
-				"video_enabled_low_brightness": false,
-				"video_brightness": 80,
-				"video_low_brightness_excludes": [],
-				"video_enabled_low_grayscale": false,
-				"video_grayscale": 0,
-				"video_low_grayscale_excludes": [],
-				"animation_enabled": true,
-				"animation_name": "fade-in",
-				"performance_track_dynamic_content": false,
-				"performance_load_scripts_in_footer": false,
-				"performance_execute_as": "sync",
-				"excludes_elements": "",
-				"excludes_elements_includes": "",
-				"excludes_posts": [],
-				"excludes_posts_all": false,
-				"excludes_posts_except": [],
-				"excludes_taxonomies": [],
-				"excludes_taxonomies_all": false,
-				"excludes_taxonomies_except": [],
-				"excludes_wc_products": [],
-				"excludes_wc_products_all": false,
-				"excludes_wc_products_except": [],
-				"excludes_wc_categories": [],
-				"excludes_wc_categories_all": false,
-				"excludes_wc_categories_except": [],
-				"accessibility_enabled_keyboard_shortcut": false,
-				"accessibility_enabled_url_param": false,
-				"typography_enabled": false,
-				"typography_font_size": "1.2",
-				"typography_font_size_custom": 100,
-				"analytics_enabled": false,
-				"analytics_enabled_dashboard_widget": true,
-				"analytics_enabled_email_reporting": false,
-				"analytics_email_reporting_frequency": "daily",
-				"analytics_email_reporting_address": "",
-				"analytics_email_reporting_subject": "WP Dark Mode Analytics Report"
-			},
-			"analytics_enabled": "",
-			"url": {
-				"ajax": "\/wp-admin\/admin-ajax.php",
-				"home": "",
-				"admin": "\/wp-admin\/",
-				"assets": "\/wp-content\/plugins\/wp-dark-mode\/assets\/"
-			},
-			"debug": ""
-		};
-		/* ]]> */
+	<script type="text/javascript" src='../test-credentials.js'></script>
+	<script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+	<script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+	<script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+	<script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+	<script>
+		window.ENV_VARIABLE = 'developer.here.com'
 	</script>
-	<script type="text/javascript" nowprocket data-no-minify="1" data-no-optimize="1"
-		src="/wp-content/plugins/wp-dark-mode/assets/js/app.min.js" id="wp-dark-mode-js"></script>
-	<script type="text/javascript" src="/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js"
-		id="font-awesome-4-shim-js"></script>
-	<link rel="https://api.w.org/" href="/wp-json/">
-	<link rel="alternate" type="application/json" href="/wp-json/wp/v2/pages/11633">
-	<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd">
-	<link rel="canonical" href="/sklepy-w-okolicy/">
-	<link rel="shortlink" href="/?p=11633">
-	<link rel="alternate" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=%2Fsklepy-w-okolicy%2F">
-	<link rel="alternate" type="text/xml+oembed"
-		href="/wp-json/oembed/1.0/embed?url=%2Fsklepy-w-okolicy%2F#038;format=xml">
-	<link rel="alternate" hreflang="en-us" href="/en/sklepy-w-okolicy/">
-	<link rel="alternate" hreflang="x-default" href="/sklepy-w-okolicy/">
-	<link rel="alternate" hreflang="pl-pl" href="/sklepy-w-okolicy/">
-	<script type="text/javascript">
-		// <![CDATA[
-		(function () {
-			var docElement = document.documentElement,
-				className = docElement.className;
-			// Change `no-js` to `js`
-			var reJS = new RegExp('(^|\\s)no-js( |\\s|$)');
-			//space as literal in second capturing group cause there is strange situation when \s is not catched on load when other plugins add their own classes
-			className = className.replace(reJS, '$1js$2');
-			docElement.className = className;
-		})();
-		// ]]>
-	</script>
-	<meta name="generator"
-		content="Elementor 3.21.0; features: e_optimized_assets_loading, e_optimized_css_loading, e_font_icon_svg, additional_custom_breakpoints, e_lazyload; settings: css_print_method-external, google_font-enabled, font_display-swap">
-	<style>
-		.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
-		.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+	<script src='../iframeheight.js'></script>
+</head>
+<script type="text/javascript" id="wp-dark-mode-js-extra">
+	/* <![CDATA[ */
+	var wp_dark_mode_json = {
+		"ajax_url": "\/wp-admin\/admin-ajax.php",
+		"nonce": "ce1f666842",
+		"is_pro": "",
+		"version": "5.0.4",
+		"is_excluded": "",
+		"excluded_elements": " #wpadminbar, .wp-dark-mode-switch, .elementor-button-content-wrapper",
+		"options": {
+			"frontend_enabled": true,
+			"frontend_mode": "device",
+			"frontend_time_starts": "06:00 PM",
+			"frontend_time_ends": "06:00 AM",
+			"frontend_custom_css": "",
+			"frontend_remember_choice": true,
+			"admin_enabled": false,
+			"admin_enabled_block_editor": true,
+			"floating_switch_enabled": true,
+			"floating_switch_style": 1,
+			"floating_switch_size": "1",
+			"floating_switch_size_custom": 100,
+			"floating_switch_position": "right",
+			"floating_switch_position_side": "right",
+			"floating_switch_position_side_value": 10,
+			"floating_switch_position_bottom_value": 10,
+			"floating_switch_enabled_attention_effect": false,
+			"floating_switch_attention_effect": "wobble",
+			"floating_switch_enabled_cta": false,
+			"floating_switch_cta_text": "Enable Dark Mode",
+			"floating_switch_cta_color": "#ffffff",
+			"floating_switch_cta_background": "#000000",
+			"floating_switch_enabled_custom_icons": false,
+			"floating_switch_icon_light": "",
+			"floating_switch_icon_dark": "",
+			"floating_switch_enabled_custom_texts": false,
+			"floating_switch_text_light": "Light",
+			"floating_switch_text_dark": "Dark",
+			"menu_switch_enabled": false,
+			"content_switch_enabled_top_of_posts": false,
+			"content_switch_enabled_top_of_pages": false,
+			"content_switch_style": 1,
+			"color_mode": "automatic",
+			"color_presets": [{
+				"name": "Gold",
+				"bg": "#000",
+				"secondary_bg": "#000",
+				"text": "#dfdedb",
+				"link": "#e58c17",
+				"link_hover": "#e58c17",
+				"input_bg": "#000",
+				"input_text": "#dfdedb",
+				"input_placeholder": "#dfdedb",
+				"button_text": "#dfdedb",
+				"button_hover_text": "#dfdedb",
+				"button_bg": "#141414",
+				"button_hover_bg": "#141414",
+				"button_border": "#1e1e1e",
+				"enable_scrollbar": false,
+				"scrollbar_track": "#141414",
+				"scrollbar_thumb": "#dfdedb"
+			}, {
+				"name": "Sapphire",
+				"bg": "#1B2836",
+				"secondary_bg": "#1B2836",
+				"text": "#fff",
+				"link": "#459BE6",
+				"link_hover": "#459BE6",
+				"input_bg": "#1B2836",
+				"input_text": "#fff",
+				"input_placeholder": "#fff",
+				"button_text": "#fff",
+				"button_hover_text": "#fff",
+				"button_bg": "#2f3c4a",
+				"button_hover_bg": "#2f3c4a",
+				"button_border": "#394654",
+				"enable_scrollbar": false,
+				"scrollbar_track": "#1B2836",
+				"scrollbar_thumb": "#fff"
+			}, {
+				"name": "Fuchsia",
+				"bg": "#1E0024",
+				"secondary_bg": "#1E0024",
+				"text": "#fff",
+				"link": "#E251FF",
+				"link_hover": "#E251FF",
+				"input_bg": "#1E0024",
+				"input_text": "#fff",
+				"input_placeholder": "#fff",
+				"button_text": "#fff",
+				"button_hover_text": "#fff",
+				"button_bg": "#321438",
+				"button_hover_bg": "#321438",
+				"button_border": "#321438",
+				"enable_scrollbar": false,
+				"scrollbar_track": "#1E0024",
+				"scrollbar_thumb": "#fff"
+			}, {
+				"name": "Rose",
+				"bg": "#270000",
+				"secondary_bg": "#270000",
+				"text": "#fff",
+				"link": "#FF7878",
+				"link_hover": "#FF7878",
+				"input_bg": "#270000",
+				"input_text": "#fff",
+				"input_placeholder": "#fff",
+				"button_text": "#fff",
+				"button_hover_text": "#fff",
+				"button_bg": "#3b1414",
+				"button_hover_bg": "#3b1414",
+				"button_border": "#451e1e",
+				"enable_scrollbar": false,
+				"scrollbar_track": "#270000",
+				"scrollbar_thumb": "#fff"
+			}, {
+				"name": "Violet",
+				"bg": "#160037",
+				"secondary_bg": "#160037",
+				"text": "#EBEBEB",
+				"link": "#B381FF",
+				"link_hover": "#B381FF",
+				"input_bg": "#160037",
+				"input_text": "#EBEBEB",
+				"input_placeholder": "#EBEBEB",
+				"button_text": "#EBEBEB",
+				"button_hover_text": "#EBEBEB",
+				"button_bg": "#2a144b",
+				"button_hover_bg": "#2a144b",
+				"button_border": "#341e55",
+				"enable_scrollbar": false,
+				"scrollbar_track": "#160037",
+				"scrollbar_thumb": "#EBEBEB"
+			}, {
+				"name": "Pink",
+				"bg": "#121212",
+				"secondary_bg": "#121212",
+				"text": "#E6E6E6",
+				"link": "#FF9191",
+				"link_hover": "#FF9191",
+				"input_bg": "#121212",
+				"input_text": "#E6E6E6",
+				"input_placeholder": "#E6E6E6",
+				"button_text": "#E6E6E6",
+				"button_hover_text": "#E6E6E6",
+				"button_bg": "#262626",
+				"button_hover_bg": "#262626",
+				"button_border": "#303030",
+				"enable_scrollbar": false,
+				"scrollbar_track": "#121212",
+				"scrollbar_thumb": "#E6E6E6"
+			}, {
+				"name": "Kelly",
+				"bg": "#000A3B",
+				"secondary_bg": "#000A3B",
+				"text": "#FFFFFF",
+				"link": "#3AFF82",
+				"link_hover": "#3AFF82",
+				"input_bg": "#000A3B",
+				"input_text": "#FFFFFF",
+				"input_placeholder": "#FFFFFF",
+				"button_text": "#FFFFFF",
+				"button_hover_text": "#FFFFFF",
+				"button_bg": "#141e4f",
+				"button_hover_bg": "#141e4f",
+				"button_border": "#1e2859",
+				"enable_scrollbar": false,
+				"scrollbar_track": "#000A3B",
+				"scrollbar_thumb": "#FFFFFF"
+			}, {
+				"name": "Magenta",
+				"bg": "#171717",
+				"secondary_bg": "#171717",
+				"text": "#BFB7C0",
+				"link": "#F776F0",
+				"link_hover": "#F776F0",
+				"input_bg": "#171717",
+				"input_text": "#BFB7C0",
+				"input_placeholder": "#BFB7C0",
+				"button_text": "#BFB7C0",
+				"button_hover_text": "#BFB7C0",
+				"button_bg": "#2b2b2b",
+				"button_hover_bg": "#2b2b2b",
+				"button_border": "#353535",
+				"enable_scrollbar": false,
+				"scrollbar_track": "#171717",
+				"scrollbar_thumb": "#BFB7C0"
+			}, {
+				"name": "Green",
+				"bg": "#003711",
+				"secondary_bg": "#003711",
+				"text": "#FFFFFF",
+				"link": "#84FF6D",
+				"link_hover": "#84FF6D",
+				"input_bg": "#003711",
+				"input_text": "#FFFFFF",
+				"input_placeholder": "#FFFFFF",
+				"button_text": "#FFFFFF",
+				"button_hover_text": "#FFFFFF",
+				"button_bg": "#144b25",
+				"button_hover_bg": "#144b25",
+				"button_border": "#1e552f",
+				"enable_scrollbar": false,
+				"scrollbar_track": "#003711",
+				"scrollbar_thumb": "#FFFFFF"
+			}, {
+				"name": "Orange",
+				"bg": "#23243A",
+				"secondary_bg": "#23243A",
+				"text": "#D6CB99",
+				"link": "#FF9323",
+				"link_hover": "#FF9323",
+				"input_bg": "#23243A",
+				"input_text": "#D6CB99",
+				"input_placeholder": "#D6CB99",
+				"button_text": "#D6CB99",
+				"button_hover_text": "#D6CB99",
+				"button_bg": "#37384e",
+				"button_hover_bg": "#37384e",
+				"button_border": "#414258",
+				"enable_scrollbar": false,
+				"scrollbar_track": "#23243A",
+				"scrollbar_thumb": "#D6CB99"
+			}, {
+				"name": "Yellow",
+				"bg": "#151819",
+				"secondary_bg": "#151819",
+				"text": "#D5D6D7",
+				"link": "#DAA40B",
+				"link_hover": "#DAA40B",
+				"input_bg": "#151819",
+				"input_text": "#D5D6D7",
+				"input_placeholder": "#D5D6D7",
+				"button_text": "#D5D6D7",
+				"button_hover_text": "#D5D6D7",
+				"button_bg": "#292c2d",
+				"button_hover_bg": "#292c2d",
+				"button_border": "#333637",
+				"enable_scrollbar": false,
+				"scrollbar_track": "#151819",
+				"scrollbar_thumb": "#D5D6D7"
+			}, {
+				"name": "Facebook",
+				"bg": "#18191A",
+				"secondary_bg": "#18191A",
+				"text": "#DCDEE3",
+				"link": "#2D88FF",
+				"link_hover": "#2D88FF",
+				"input_bg": "#18191A",
+				"input_text": "#DCDEE3",
+				"input_placeholder": "#DCDEE3",
+				"button_text": "#DCDEE3",
+				"button_hover_text": "#DCDEE3",
+				"button_bg": "#2c2d2e",
+				"button_hover_bg": "#2c2d2e",
+				"button_border": "#363738",
+				"enable_scrollbar": false,
+				"scrollbar_track": "#18191A",
+				"scrollbar_thumb": "#DCDEE3"
+			}, {
+				"name": "Twitter",
+				"bg": "#141d26",
+				"secondary_bg": "#141d26",
+				"text": "#fff",
+				"link": "#1C9CEA",
+				"link_hover": "#1C9CEA",
+				"input_bg": "#141d26",
+				"input_text": "#fff",
+				"input_placeholder": "#fff",
+				"button_text": "#fff",
+				"button_hover_text": "#fff",
+				"button_bg": "#28313a",
+				"button_hover_bg": "#28313a",
+				"button_border": "#323b44",
+				"enable_scrollbar": false,
+				"scrollbar_track": "#141d26",
+				"scrollbar_thumb": "#fff"
+			}],
+			"color_preset_id": 0,
+			"color_filter_brightness": 100,
+			"color_filter_contrast": 90,
+			"color_filter_grayscale": 0,
+			"color_filter_sepia": 10,
+			"image_replaces": [],
+			"image_enabled_low_brightness": true,
+			"image_brightness": 80,
+			"image_low_brightness_excludes": [],
+			"image_enabled_low_grayscale": false,
+			"image_grayscale": 0,
+			"image_low_grayscale_excludes": [],
+			"video_replaces": [],
+			"video_enabled_low_brightness": false,
+			"video_brightness": 80,
+			"video_low_brightness_excludes": [],
+			"video_enabled_low_grayscale": false,
+			"video_grayscale": 0,
+			"video_low_grayscale_excludes": [],
+			"animation_enabled": true,
+			"animation_name": "fade-in",
+			"performance_track_dynamic_content": false,
+			"performance_load_scripts_in_footer": false,
+			"performance_execute_as": "sync",
+			"excludes_elements": "",
+			"excludes_elements_includes": "",
+			"excludes_posts": [],
+			"excludes_posts_all": false,
+			"excludes_posts_except": [],
+			"excludes_taxonomies": [],
+			"excludes_taxonomies_all": false,
+			"excludes_taxonomies_except": [],
+			"excludes_wc_products": [],
+			"excludes_wc_products_all": false,
+			"excludes_wc_products_except": [],
+			"excludes_wc_categories": [],
+			"excludes_wc_categories_all": false,
+			"excludes_wc_categories_except": [],
+			"accessibility_enabled_keyboard_shortcut": false,
+			"accessibility_enabled_url_param": false,
+			"typography_enabled": false,
+			"typography_font_size": "1.2",
+			"typography_font_size_custom": 100,
+			"analytics_enabled": false,
+			"analytics_enabled_dashboard_widget": true,
+			"analytics_enabled_email_reporting": false,
+			"analytics_email_reporting_frequency": "daily",
+			"analytics_email_reporting_address": "",
+			"analytics_email_reporting_subject": "WP Dark Mode Analytics Report"
+		},
+		"analytics_enabled": "",
+		"url": {
+			"ajax": "\/wp-admin\/admin-ajax.php",
+			"home": "",
+			"admin": "\/wp-admin\/",
+			"assets": "\/wp-content\/plugins\/wp-dark-mode\/assets\/"
+		},
+		"debug": ""
+	};
+	/* ]]> */
+</script>
+<script type="text/javascript" nowprocket data-no-minify="1" data-no-optimize="1"
+	src="/wp-content/plugins/wp-dark-mode/assets/js/app.min.js" id="wp-dark-mode-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js"
+	id="font-awesome-4-shim-js"></script>
+<link rel="https://api.w.org/" href="/wp-json/">
+<link rel="alternate" type="application/json" href="/wp-json/wp/v2/pages/11633">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd">
+<link rel="canonical" href="/sklepy-w-okolicy/">
+<link rel="shortlink" href="/?p=11633">
+<link rel="alternate" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=%2Fsklepy-w-okolicy%2F">
+<link rel="alternate" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=%2Fsklepy-w-okolicy%2F#038;format=xml">
+<link rel="alternate" hreflang="en-us" href="/en/sklepy-w-okolicy/">
+<link rel="alternate" hreflang="x-default" href="/sklepy-w-okolicy/">
+<link rel="alternate" hreflang="pl-pl" href="/sklepy-w-okolicy/">
+<script type="text/javascript">
+	// <![CDATA[
+	(function () {
+		var docElement = document.documentElement,
+			className = docElement.className;
+		// Change `no-js` to `js`
+		var reJS = new RegExp('(^|\\s)no-js( |\\s|$)');
+		//space as literal in second capturing group cause there is strange situation when \s is not catched on load when other plugins add their own classes
+		className = className.replace(reJS, '$1js$2');
+		docElement.className = className;
+	})();
+	// ]]>
+</script>
+<meta name="generator"
+	content="Elementor 3.21.0; features: e_optimized_assets_loading, e_optimized_css_loading, e_font_icon_svg, additional_custom_breakpoints, e_lazyload; settings: css_print_method-external, google_font-enabled, font_display-swap">
+<style>
+	.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+	.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+		background-image: none !important;
+	}
+
+	@media screen and (max-height: 1024px) {
+
+		.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+		.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
 			background-image: none !important;
 		}
+	}
 
-		@media screen and (max-height: 1024px) {
+	@media screen and (max-height: 640px) {
 
-			.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
-			.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
-				background-image: none !important;
-			}
+		.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+		.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+			background-image: none !important;
 		}
-
-		@media screen and (max-height: 640px) {
-
-			.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
-			.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
-				background-image: none !important;
-			}
-		}
-	</style>
-	<link rel="icon" href="/wp-content/uploads/2020/04/logo-strony-512x512-1.png" sizes="32x32">
-	<link rel="icon" href="/wp-content/uploads/2020/04/logo-strony-512x512-1.png" sizes="192x192">
-	<link rel="apple-touch-icon" href="/wp-content/uploads/2020/04/logo-strony-512x512-1.png">
-	<meta name="msapplication-TileImage" content="/wp-content/uploads/2020/04/logo-strony-512x512-1.png">
+	}
+</style>
+<link rel="icon" href="/wp-content/uploads/2020/04/logo-strony-512x512-1.png" sizes="32x32">
+<link rel="icon" href="/wp-content/uploads/2020/04/logo-strony-512x512-1.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/wp-content/uploads/2020/04/logo-strony-512x512-1.png">
+<meta name="msapplication-TileImage" content="/wp-content/uploads/2020/04/logo-strony-512x512-1.png">
 </head>
 
 <body id="top"
@@ -823,7 +834,8 @@
 						<ul id="menu-main-menu" class="top-menu opener-icons-on">
 							<li id="menu-item-11577"
 								class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-11577 normal-menu">
-								<a href="/"><span>Strona główna</span></a></li>
+								<a href="/"><span>Strona główna</span></a>
+							</li>
 							<li id="menu-item-11723"
 								class="menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-parent-item menu-item-11723 normal-menu">
 								<a href="/sprawdz/"><span>Sprawdź</span></a><i tabindex="0"
@@ -831,30 +843,38 @@
 								<ul class="sub-menu">
 									<li id="menu-item-11724"
 										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11724">
-										<a href="/wyszukiwarka/"><span>Wyszukiwarka</span></a></li>
+										<a href="/wyszukiwarka/"><span>Wyszukiwarka</span></a>
+									</li>
 									<li id="menu-item-11725"
 										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11725">
-										<a href="/oceny/"><span>Oceny</span></a></li>
+										<a href="/oceny/"><span>Oceny</span></a>
+									</li>
 									<li id="menu-item-11726"
 										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11726">
-										<a href="/porownaj/"><span>Porównaj</span></a></li>
+										<a href="/porownaj/"><span>Porównaj</span></a>
+									</li>
 									<li id="menu-item-11727"
 										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11727">
-										<a href="/filtrowanie/"><span>Filtrowanie</span></a></li>
+										<a href="/filtrowanie/"><span>Filtrowanie</span></a>
+									</li>
 									<li id="menu-item-11728"
 										class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-11633 current_page_item menu-item-11728">
-										<a href="/sklepy-w-okolicy/"><span>Sklepy w okolicy</span></a></li>
+										<a href="/sklepy-w-okolicy/"><span>Sklepy w okolicy</span></a>
+									</li>
 								</ul>
 							</li>
 							<li id="menu-item-11789"
 								class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11789 normal-menu">
-								<a href="/logowanie/"><span>Logowanie</span></a></li>
+								<a href="/logowanie/"><span>Logowanie</span></a>
+							</li>
 							<li id="menu-item-11790"
 								class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11790 normal-menu">
-								<a href="/rejestracja/"><span>Rejestracja</span></a></li>
+								<a href="/rejestracja/"><span>Rejestracja</span></a>
+							</li>
 							<li id="menu-item-11581"
 								class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11581 normal-menu">
-								<a href="/contact/"><span>O nas</span></a></li>
+								<a href="/contact/"><span>O nas</span></a>
+							</li>
 						</ul>
 					</div>
 				</nav>
@@ -917,7 +937,9 @@
 
 
 									<p>Wyszukaj sklepy już teraz i ciesz się zakupami w swojej okolicy!</p>
+									<div id="map" style="height: 600px;"></div>
 									<div class="clear"></div>
+
 
 								</div>
 
@@ -929,6 +951,95 @@
 			</article>
 
 		</div>
+		<script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			// Check if the HERE Maps API is working
+			function checkHereMapsApi() {
+				const platform = new H.service.Platform({
+					'apikey': 'fa8idLMOlUO9j0bHwrMIH4EXrH6p4eqaoyAejeqkYBE' // Replace with your HERE API Key
+				});
+				const geocoder = platform.getSearchService();
+				const geocodingParameters = {
+					q: 'Berlin, Germany' // A sample address
+				};
+
+				geocoder.geocode(
+					geocodingParameters,
+					result => {
+						console.log('HERE Maps API check result:', result);
+					},
+					error => {
+						console.error('HERE Maps API check error:', error);
+					}
+				);
+			}
+
+			// Call the function to check the HERE Maps API
+			checkHereMapsApi();
+
+
+			function getCoordinates(platform, address) {
+				console.log('Getting coordinates for address:', address); // Added logging
+				var geocoder = platform.getSearchService(),
+					geocodingParameters = {
+						q: address
+					};
+
+				console.log('Geocoding parameters:', geocodingParameters); // Added logging
+
+				geocoder.geocode(
+					geocodingParameters,
+					onSuccess,
+					onError
+				);
+			}
+
+			function onSuccess(result) {
+				console.log('Geocoding result:', result); // Added logging
+				var locations = result.items;
+				if (locations.length > 0) {
+					var coordinates = [locations[0].position.lat, locations[0].position.lng];
+					console.log('Coordinates:', coordinates); // Added logging
+					return coordinates;
+				} else {
+					console.error('No results found'); // Changed from throw to console.error
+				}
+			}
+
+			function onError(error) {
+				console.error('Failed to get coordinates', error);
+			}
+
+			// Fetch shop localizations from the backend
+			fetch('/sklepy/lokalizacje')
+				.then(response => response.json())
+				.then(async data => {
+					// Initialize the map
+					var map = L.map('map').setView([51.505, -0.09], 13);
+
+					// Set up the OSM layer
+					L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+						maxZoom: 19,
+						attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
+					}).addTo(map);
+
+					// Add markers to the map
+					for (let shop of data) {
+						try {
+							const platform = new H.service.Platform({
+								'apikey': 'fa8idLMOlUO9j0bHwrMIH4EXrH6p4eqaoyAejeqkYBE' // Replace with your HERE API Key
+							});
+							const coords = await getCoordinates(platform, shop.address);
+							L.marker(coords).addTo(map)
+								.bindPopup(`<b>${shop.name}</b><br />${shop.address}`).openPopup();
+						} catch (error) {
+							console.error(`Failed to get coordinates for address: ${shop.address}`, error);
+						}
+					}
+				})
+				.catch(error => console.error('Error:', error));
+		</script>
 		<!-- #mid -->
 
 		<footer id="footer" class="to-move narrow classic" itemtype="https://schema.org/WPFooter" itemscope>
