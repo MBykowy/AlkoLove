@@ -154,10 +154,9 @@ async function registerUser(client: Client, data: any) {
 async function fetchAllShopLocalizations(client: Client) {
   await client.connect();
   const { rows: shopLocalizationRows } = await client.query('SELECT adres FROM sklepy_adres');
-  const stringifiedRows = JSON.stringify(shopLocalizationRows);
-  console.log('Shop Localization Rows:', stringifiedRows); // Logging stringified rows
+  console.log('Shop Localization Rows:', shopLocalizationRows); // Logging stringified rows
   await client.end();
-  return stringifiedRows;
+  return shopLocalizationRows;
 }
 
 //Logowanie

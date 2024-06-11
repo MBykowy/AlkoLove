@@ -952,41 +952,19 @@
 
 		</div>
 		<script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
-<script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
 		<script>
-			// Check if the HERE Maps API is working
-			function checkHereMapsApi() {
-				const platform = new H.service.Platform({
-					'apikey': 'fa8idLMOlUO9j0bHwrMIH4EXrH6p4eqaoyAejeqkYBE' // Replace with your HERE API Key
-				});
-				const geocoder = platform.getSearchService();
-				const geocodingParameters = {
-					q: 'Berlin, Germany' // A sample address
-				};
-
-				geocoder.geocode(
-					geocodingParameters,
-					result => {
-						console.log('HERE Maps API check result:', result);
-					},
-					error => {
-						console.error('HERE Maps API check error:', error);
-					}
-				);
-			}
-
-			// Call the function to check the HERE Maps API
-			checkHereMapsApi();
-
-
-			function getCoordinates(platform, address) {
-				console.log('Getting coordinates for address:', address); // Added logging
+			function geocode(platform, address) {
 				var geocoder = platform.getSearchService(),
 					geocodingParameters = {
-						q: address
-					};
+						address: 'Zielona Góra ' + address,
+						q: address.adres
 
-				console.log('Geocoding parameters:', geocodingParameters); // Added logging
+					};
+				console.log(address);
+				q: 'Zielona Góra ' + address
+
+				console.log('Geocoding parameters:', geocodingParameters.q);
 
 				geocoder.geocode(
 					geocodingParameters,
@@ -996,49 +974,55 @@
 			}
 
 			function onSuccess(result) {
-				console.log('Geocoding result:', result); // Added logging
 				var locations = result.items;
-				if (locations.length > 0) {
-					var coordinates = [locations[0].position.lat, locations[0].position.lng];
-					console.log('Coordinates:', coordinates); // Added logging
-					return coordinates;
-				} else {
-					console.error('No results found'); // Changed from throw to console.error
-				}
+				addLocationsToMap(locations);
+			}
+			// Initialize the map
+			var map = L.map('map').setView([51.93548, 15.50643], 13); // Set initial view to Zielona Góra
+
+			// Set up the OSM layer
+			L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+				maxZoom: 19,
+				attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
+			}).addTo(map);
+
+			function addLocationsToMap(locations) {
+				console.log('Locations:', locations); // Log the locations array
+
+				locations.forEach(location => {
+					var lat = location.position.lat;
+					var lng = location.position.lng;
+
+					console.log('Adding marker at:', lat, lng); // Log the location of each marker
+
+					// Add a marker for this location to the map
+					L.marker([lat, lng]).addTo(map);
+				});
 			}
 
 			function onError(error) {
-				console.error('Failed to get coordinates', error);
+				alert('Can\'t reach the remote server');
 			}
 
-			// Fetch shop localizations from the backend
+			var platform = new H.service.Platform({
+				apikey: 'fa8idLMOlUO9j0bHwrMIH4EXrH6p4eqaoyAejeqkYBE'
+			});
+			var defaultLayers = platform.createDefaultLayers();
+
+			// Fetch addresses from your endpoint
 			fetch('/sklepy/lokalizacje')
 				.then(response => response.json())
-				.then(async data => {
-					// Initialize the map
-					var map = L.map('map').setView([51.505, -0.09], 13);
-
-					// Set up the OSM layer
-					L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-						maxZoom: 19,
-						attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
-					}).addTo(map);
-
-					// Add markers to the map
-					for (let shop of data) {
-						try {
-							const platform = new H.service.Platform({
-								'apikey': 'fa8idLMOlUO9j0bHwrMIH4EXrH6p4eqaoyAejeqkYBE' // Replace with your HERE API Key
-							});
-							const coords = await getCoordinates(platform, shop.address);
-							L.marker(coords).addTo(map)
-								.bindPopup(`<b>${shop.name}</b><br />${shop.address}`).openPopup();
-						} catch (error) {
-							console.error(`Failed to get coordinates for address: ${shop.address}`, error);
-						}
-					}
-				})
-				.catch(error => console.error('Error:', error));
+				.then(addresses => {
+					/*addresses.slice(0, 5)*/
+					addresses.forEach((address, index) => {
+						// Delay each request by 1 second
+						setTimeout(() => {
+							// Get coordinates from Here API
+							geocode(platform, address);
+						}, index * 100);
+					});
+				});
+			//fa8idLMOlUO9j0bHwrMIH4EXrH6p4eqaoyAejeqkYBE
 		</script>
 		<!-- #mid -->
 
