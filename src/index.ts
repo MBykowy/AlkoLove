@@ -59,6 +59,12 @@ async function handleEvent(event: FetchEvent) {
     return new Response(JSON.stringify(rows), {
       status: 200
     });
+  } else if (pathname.startsWith('/sklepy/lokalizacje')) {
+    const client = new Client(DATABASE_URL);
+    const rows = await fetchAllShopLocalizations(client);
+    return new Response(JSON.stringify(rows), {
+      status: 200
+    });
   }
 
 
@@ -143,11 +149,21 @@ async function registerUser(client: Client, data: any) {
   };
 }
 
+
+//Znalezienie wszystkich lokalizacji sklepów
+async function fetchAllShopLocalizations(client: Client) {
+  await client.connect();
+  const { rows: shopLocalizationRows } = await client.query('SELECT adres FROM sklepy_adres');
+  console.log('Shop Localization Rows:', shopLocalizationRows); // Logging stringified rows
+  await client.end();
+  return shopLocalizationRows;
+}
+
 //Logowanie
 async function loginUser(client: Client, data: any) {
   await client.connect();
   const query = 'SELECT * FROM uzytkownicy WHERE email = $1 AND haslo = $2';
-  const values = [data.email, data.haslo];
+  const values = [data.email, data.password];
   const {
     rows
   } = await client.query(query, values);
@@ -157,7 +173,7 @@ async function loginUser(client: Client, data: any) {
     // Login was successful
     return {
       status: 'success',
-      user: rows[0]
+      user: rows[0].nazwa
     };
   } else {
     // Invalid email or password
