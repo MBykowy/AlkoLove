@@ -65,7 +65,15 @@ async function handleEvent(event: FetchEvent) {
     return new Response(JSON.stringify(rows), {
       status: 200
     });
-  }
+  }else if (event.request.method === 'POST' && pathname === '/profil') {
+    const client = new Client(DATABASE_URL);
+    const userId = await event.request.json(); // parse the incoming JSON
+    const userData = await fetchUserData(client, userId);
+    const userPhoto = await fetchUserPhoto(client, userId);
+    return new Response(JSON.stringify({data: userData, photo: userPhoto}), {
+      status: 200
+    });
+}
 
 
 
@@ -181,5 +189,34 @@ async function loginUser(client: Client, data: any) {
       status: 'error',
       message: 'Invalid email or password'
     };
+  }
+}
+
+//profil
+async function fetchUserData(client: Client, userId: string) {
+  await client.connect();
+
+  const res = await client.query('SELECT * FROM users WHERE id = $1', [userId]);
+
+  await client.end();
+
+  if (res.rows.length > 0) {
+      return res.rows[0];
+  } else {
+      throw new Error('User not found');
+  }
+}
+
+async function fetchUserPhoto(client: Client, userId: string) {
+  await client.connect();
+
+  const res = await client.query('SELECT photo FROM user_photos WHERE user_id = $1', [userId]);
+
+  await client.end();
+
+  if (res.rows.length > 0) {
+      return res.rows[0].photo;
+  } else {
+      throw new Error('User photo not found');
   }
 }

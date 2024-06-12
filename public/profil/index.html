@@ -980,80 +980,54 @@
 					<div id="col-mask">
 						<div id="post-login" class="content-box post-login page type-page status-publish">
 							<div class="formatter">
-								<div class="real-content" itemprop="text">
-									<h2>Login</h2>
-									<form id="loginForm" action="/login" method="post">
-										<label for="email">Email:</label><br>
-										<input type="email" id="email" name="email" required><br>
-										<label for="password">Password:</label><br>
-										<input type="password" id="password" name="password" required><br>
-										<input type="submit" value="Login">
-									</form>
-									<button id="deleteCookie">Delete Cookie</button> <!-- Do usunięcia -->
-									<div id="message"></div>
-									<div class="clear"></div>
+								<div id="profile" style="display: none;">
+									<h2 style="text-align: center;">User Profile</h2>
+									<div style="display: flex; justify-content: center;">
+										<img id="profilePhoto" style="width: 100px; height: 100px; border-radius: 50%;" />
+									</div>
+									<div id="profileData" style="margin: 20px;">
+										<!-- User data will be inserted here -->
+									</div>
 								</div>
+								
 							</div>
 						</div>
 					</div>
 				</div>
 			</article>
 			<script>
-				//Do usunięcia
-				document.getElementById('deleteCookie').addEventListener('click', function () {
-					document.cookie = "loggedIn=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-					document.cookie = "userId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-				});
-				//Koniec
-				document.getElementById('loginForm').addEventListener('submit', async function (event) {
-					event.preventDefault();
-
-					const email = document.getElementById('email').value;
-					const password = document.getElementById('password').value;
-
-					// Simple validation
-					if (!email || !password) {
-						alert('Please fill in both fields.');
-						return;
+				async function fetchUserProfile(userId2) {
+					// Fetch user data
+					const userDataResponse = await fetch(`/profil?userId=${userId2}`);
+					const userData = await userDataResponse.json();
+				
+					// Fetch user photo
+					const userPhotoResponse = await fetch(`/api/userPhoto?userId=${userId2}`);
+					const userPhoto = await userPhotoResponse.json();
+				
+					// Display user data
+					let profileDataHtml = '';
+					for (let key in userData) {
+						profileDataHtml += `<p><strong>${key}:</strong> ${userData[key]}</p>`;
 					}
-
-					try {
-						const response = await fetch('/login', {
-							method: 'POST',
-							headers: {
-								'Content-Type': 'application/json',
-							},
-							body: JSON.stringify({
-								email,
-								password
-							}),
-						});
-
-						const data = await response.json();
-						console.log(response);
-						const messageDiv = document.getElementById('message');
-						if (data.status == "success") {
-							// Login was successful
-							// Redirect to a new page, or update the UI
-							document.cookie = `userId=${data.user}; path=/; max-age=3600`;
-							alert('Login successful! user: ' + data.user);
-							messageDiv.textContent = 'Login successful!';
-							messageDiv.style.color = 'green';
-						} else {
-							// There was an error
-							alert('Error: ' + data.message);
-							messageDiv.textContent = 'Error: ' + data.message;
-							messageDiv.style.color = 'red';
-						}
-					} catch (error) {
-						// Handle any errors that might occur during the fetch operation
-						alert('An error occurred: ' + error.message);
-
-					}
-				});
-
-
-			</script>
+					document.getElementById('profileData').innerHTML = profileDataHtml;
+				
+					// Display user photo
+					document.getElementById('profilePhoto').src = userPhoto.url;
+				
+					// Show the profile
+					document.getElementById('profile').style.display = 'block';
+				}
+				
+				// Get the userId from the cookie
+				let userIdCookie2 = document.cookie.split('; ').find(row => row.startsWith('userId'));
+				let userId2 = userIdCookie2 ? userIdCookie2.split('=')[1] : null;
+				console.log(userId2);
+			
+				if (userId2) {
+					fetchUserProfile(userId2);
+				}
+				</script>
 
 		</div>
 		<!-- #mid -->
@@ -1192,7 +1166,7 @@
 		id="jquery-lightgallery-js"></script>
 	<script type="text/javascript" src="/wp-content/themes/rife-free/js/script.min.js"
 		id="apollo13framework-scripts-js"></script>
-					<!-- sprawdzanie czy użyytkownik jest zalogowany-->
+	<!-- sprawdzanie czy użyytkownik jest zalogowany-->
 	<script type="text/javascript" src="/skrypty/czyzalogowany.js" id="czyzalogowany-js"></script>
 	<!--koniec-->
 </body>
