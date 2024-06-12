@@ -163,7 +163,7 @@ async function fetchAllShopLocalizations(client: Client) {
 async function loginUser(client: Client, data: any) {
   await client.connect();
   const query = 'SELECT * FROM uzytkownicy WHERE email = $1 AND haslo = $2';
-  const values = [data.email, data.haslo];
+  const values = [data.email, data.password];
   const {
     rows
   } = await client.query(query, values);
@@ -173,7 +173,7 @@ async function loginUser(client: Client, data: any) {
     // Login was successful
     return {
       status: 'success',
-      user: rows[0]
+      user: rows[0].nazwa
     };
   } else {
     // Invalid email or password
