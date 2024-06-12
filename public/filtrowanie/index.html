@@ -396,6 +396,7 @@
 		href="/wp-content/plugins/elementor/assets/lib/font-awesome/css/v4-shims.min.css" type="text/css" media="all">
 	<script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
 	<script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+
 	<script type="text/javascript" id="wp-dark-mode-js-extra">
 		/* <![CDATA[ */
 		var wp_dark_mode_json = {
@@ -852,12 +853,16 @@
 								</ul>
 							</li>
 							<li id="menu-item-11789"
-								class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11789 normal-menu">
+								class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-11780 current_page_item menu-item-11789 normal-menu">
 								<a href="/logowanie/"><span>Logowanie</span></a>
 							</li>
 							<li id="menu-item-11790"
 								class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11790 normal-menu">
 								<a href="/rejestracja/"><span>Rejestracja</span></a>
+							</li>
+							<li id="menu-item-11791"
+								class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11790 normal-menu">
+								<a href="/profil/"><span>Profil</span></a>
 							</li>
 							<li id="menu-item-11581"
 								class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11581 normal-menu">
@@ -1478,6 +1483,7 @@
 										.catch(error => {
 											console.error('There has been a problem with your fetch operation:', error);
 										});
+									
 								</script>
 
 								<!-- Konie Custom-->
@@ -1625,6 +1631,9 @@
 		id="jquery-lightgallery-js"></script>
 	<script type="text/javascript" src="/wp-content/themes/rife-free/js/script.min.js"
 		id="apollo13framework-scripts-js"></script>
+			<!-- sprawdzanie czy użyytkownik jest zalogowany-->
+			<script type="text/javascript" src="/skrypty/czyzalogowany.js" id="czyzalogowany-js"></script>
+			<!--koniec-->
 </body>
 
 </html>
