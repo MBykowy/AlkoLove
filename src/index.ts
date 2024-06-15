@@ -76,7 +76,8 @@
       });
     } else if (event.request.method === 'POST' && pathname === '/profil/zapisz') {
       const client = new Client(DATABASE_URL);
-      await ZmienDane(client, event.request);
+      const dane = await event.request.json(); // parse the incoming JSON
+      await ZmienDane(client, dane);
       
       return new Response('success', { status: 200 });
     }
@@ -232,9 +233,9 @@
   }
 
   async function ZmienDane(client: Client, data1: any) {
+    
     await client.connect();
     const query = 'UPDATE uzytkownicy SET admin = $1, email = $2, haslo = $3, nazwa = $4, zdjecie = $5 WHERE nazwa = $4';
-    console.log(data1.email);
     const values = [false, data1.email, data1.haslo, data1.nazwa, data1.zdjecie]; // assuming admin is always false for new users
     await client.query(query, values);
     await client.end();

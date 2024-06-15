@@ -1085,6 +1085,7 @@
 						zdjecie: document.getElementById('zdjecie').value,
 						
 					};
+					console.log('updatedProfileData:', JSON.stringify(updatedProfileData));
 
 					// Send the updated profile data to the server
 					const response = await fetch('/profil/zapisz', {
@@ -1097,16 +1098,13 @@
 
 					// Check if the request was successful
 					if (response.ok) {
-						console.log('Request was successful');
+
 					} else {
 						console.error('Failed to save changes');
 					}
 				}
 
 
-
-				// Add event listener to the edit profile button
-				document.getElementById('editProfileButton').addEventListener('click', convertToForms);
 
 				// Add event listener to the edit profile button
 				document.getElementById('editProfileButton').addEventListener('click', convertToForms);
