@@ -15,6 +15,7 @@ jobs:
         run: |
           npm install @cloudflare/kv-asset-handler
           npm install @neondatabase/serverless
+          npm install --save @emailjs/browser
       - name: Deploy
         uses: cloudflare/wrangler-action@v3
         with:
