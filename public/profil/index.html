@@ -1035,22 +1035,38 @@
 						// Set the src attribute of the img element if userProfile.data.data.zdjecie is defined
 						if (userProfile.data.data.zdjecie) {
 							document.getElementById('profilePhoto').src = userProfile.data.data.zdjecie;
-							console.log('zdjecie:', userProfile.data.data.zdjecie[key]);
 						} else {
 							console.error('zdjecie is not defined');
 						}
-						// Display user photo
-						document.getElementById('profilePhoto').src = userProfile.data.zdjecie;
+
+
+						//Przypadek admina
+						// Get the user's admin status
+						const isAdmin = userProfileUpdated.data.data.admin;
+						console.log('isAdmin:', isAdmin);
+
+						// Check if the user is an admin
+						if (isAdmin) {
+							// Create a new button
+							const button = document.createElement('button');
+							button.textContent = 'Go to Admin Page';
+
+							// Add an event listener to the button
+							button.addEventListener('click', () => {
+								// Navigate to the admin page
+								window.location.href = '/admin';
+							});
+
+							// Add the button to the user profile div
+							const userProfileDiv = document.getElementById('userProfile');
+							userProfileDiv.appendChild(button);
+						}
+
+
 					} catch (error) {
 						console.error('Error fetching user profile:', error);
 					}
 				}
-
-
-
-
-
-
 
 
 
@@ -1078,12 +1094,12 @@
 				async function saveChanges() {
 					// Get the updated profile data from the form
 					const updatedProfileData = {
-						admin : userProfileUpdated.data.data.admin,
+						admin: userProfileUpdated.data.data.admin,
 						email: document.getElementById('email').value,
 						haslo: document.getElementById('haslo').value,
 						nazwa: document.getElementById('nazwa').value,
 						zdjecie: document.getElementById('zdjecie').value,
-						
+
 					};
 					console.log('updatedProfileData:', JSON.stringify(updatedProfileData));
 

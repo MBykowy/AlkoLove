@@ -80,6 +80,12 @@
       await ZmienDane(client, dane);
       
       return new Response('success', { status: 200 });
+    } else if (event.request.method === 'POST' && pathname === '/produkty/zapisz') {
+      const client = new Client(DATABASE_URL);
+      const productData = await event.request.json(); // parse the incoming JSON
+      await ZmienDaneProduktu(client, productData);
+      
+      return new Response('success', { status: 200 });
     }
 
 
@@ -232,6 +238,7 @@
     }
   }
 
+  //zmiana danych profilu
   async function ZmienDane(client: Client, data1: any) {
     
     await client.connect();
@@ -246,3 +253,41 @@
       body: JSON.stringify({ status: 'success' })
     };
   }
+
+  async function ZmienDaneProduktu(client: Client, productData: any) {
+    // Connect to the database
+    await client.connect();
+    console.log('productDataS:', JSON.stringify(productData)); // Log the product data
+
+
+
+    const values = [
+      parseFloat(productData.cena),
+      productData.gatunek,
+      productData.nazwa,
+      productData.obraz,
+      productData.opis,
+      parseInt(productData.pojemnosc),
+      productData.producent,
+      productData.typ,
+      parseFloat(productData.zawartosc_alk),
+      parseInt(productData.id_produktow)
+    ];
+
+    // Update the product data in the database
+    const query = `UPDATE produkty SET cena = $1, gatunek = $2, nazwa = $3, obraz = $4, opis = $5, pojemnosc = $6, producent = $7, typ = $8, zawartosc_alk = $9 WHERE id_produktow = $10`;
+
+    try {
+      // Execute the query
+      await client.query(query, values);
+    } catch (err) {
+      if (err instanceof Error) {
+        console.error('Error executing query', err.stack);
+      } else {
+        console.error('Error executing query', err);
+      }
+    } finally {
+      // End the database connection
+      await client.end();
+    }
+}
