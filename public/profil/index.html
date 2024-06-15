@@ -975,59 +975,145 @@
 				}
 			</style>
 
-			<article id="login" class="clearfix" itemtype="https://schema.org/CreativeWork" itemscope>
-				<div class="content-limiter">
-					<div id="col-mask">
-						<div id="post-login" class="content-box post-login page type-page status-publish">
-							<div class="formatter">
-								<div id="profile" style="display: none;">
-									<h2 style="text-align: center;">User Profile</h2>
-									<div style="display: flex; justify-content: center;">
-										<img id="profilePhoto" style="width: 100px; height: 100px; border-radius: 50%;" />
-									</div>
-									<div id="profileData" style="margin: 20px;">
-										<!-- User data will be inserted here -->
-									</div>
-								</div>
-								
-							</div>
-						</div>
-					</div>
+			<div id="userProfile"
+				style="width: 300px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px;">
+				<h2 style="text-align: center;">Profil</h2>
+				<div style="text-align: center;">
+					<img id="profilePhoto" src="" alt="User Photo"
+						style="width: 100%; max-width: 200px; height: auto; border-radius: 10px;">
 				</div>
-			</article>
+
+				<!-- Div for user data -->
+				<div id="profileData" style="margin-bottom: 20px;"></div>
+
+				<!-- Button to edit profile data -->
+				<button id="editProfileButton" style="display: block; margin: auto;">Edit Profile</button>
+
+				<!-- Button to save changes, initially hidden -->
+				<button id="saveChangesButton" style="display: none; margin: auto;">Save Changes</button>
+			</div>
+
 			<script>
-				async function fetchUserProfile(userId2) {
-					// Fetch user data
-					const userDataResponse = await fetch(`/profil?userId=${userId2}`);
-					const userData = await userDataResponse.json();
-				
-					// Fetch user photo
-					const userPhotoResponse = await fetch(`/api/userPhoto?userId=${userId2}`);
-					const userPhoto = await userPhotoResponse.json();
-				
-					// Display user data
-					let profileDataHtml = '';
-					for (let key in userData) {
-						profileDataHtml += `<p><strong>${key}:</strong> ${userData[key]}</p>`;
-					}
-					document.getElementById('profileData').innerHTML = profileDataHtml;
-				
-					// Display user photo
-					document.getElementById('profilePhoto').src = userPhoto.url;
-				
-					// Show the profile
-					document.getElementById('profile').style.display = 'block';
-				}
-				
 				// Get the userId from the cookie
-				let userIdCookie2 = document.cookie.split('; ').find(row => row.startsWith('userId'));
+				let userIdCookie2 = document.cookie.split('; ').find(row => row.startsWith('userId='));
 				let userId2 = userIdCookie2 ? userIdCookie2.split('=')[1] : null;
-				console.log(userId2);
-			
+				let userProfileUpdated;
+				console.log('userId from cookie:', userId2);
+
 				if (userId2) {
+					console.log('fetchUserProfile userId:', userId2); // Log the userId
 					fetchUserProfile(userId2);
+				} else {
+					console.error('userId is not defined');
 				}
-				</script>
+				async function fetchUserProfile(userId2) {
+					try {
+						// Fetch user data and photo
+						const userProfileResponse = await fetch(`/profil/dane`, {
+							method: 'POST',
+							headers: {
+								'Content-Type': 'application/json'
+							},
+							body: JSON.stringify({
+								userId: userId2
+							})
+						});
+						if (!userProfileResponse.ok) {
+							throw new Error(`Error fetching user profile: ${userProfileResponse.statusText}`);
+						}
+						const userProfile = await userProfileResponse.json();
+						userProfileUpdated = userProfile;
+						// Display user data
+						let profileDataHtml = '';
+						for (let key in userProfile.data.data) {
+							if (key !== 'zdjecie' && key !== 'admin') { // Skip the 'zdjecie' field
+								profileDataHtml += `<p>${key}: ${userProfile.data.data[key]}</p>`;
+							}
+						}
+						document.getElementById('profileData').innerHTML = profileDataHtml;
+
+						// Set the src attribute of the img element if userProfile.data.data.zdjecie is defined
+						if (userProfile.data.data.zdjecie) {
+							document.getElementById('profilePhoto').src = userProfile.data.data.zdjecie;
+							console.log('zdjecie:', userProfile.data.data.zdjecie[key]);
+						} else {
+							console.error('zdjecie is not defined');
+						}
+						// Display user photo
+						document.getElementById('profilePhoto').src = userProfile.data.zdjecie;
+					} catch (error) {
+						console.error('Error fetching user profile:', error);
+					}
+				}
+
+
+
+
+
+
+
+
+
+
+				// Function to convert divs to forms
+				function convertToForms() {
+					// Check if userProfile is defined
+					if (userProfileUpdated) {
+						let profileDataHtml = '';
+						for (let key in userProfileUpdated.data.data) {
+							if (key !== 'admin') { // Skip the 'zdjecie' field
+								profileDataHtml +=
+									`<label for="${key}">${key}:</label><input id="${key}" type="text" value="${userProfileUpdated.data.data[key]}"><br>`;
+							}
+						}
+						document.getElementById('profileData').innerHTML = profileDataHtml;
+						document.getElementById('saveChangesButton').style.display = 'block';
+
+					} else {
+						console.error('userProfile is not defined');
+					}
+				}
+
+				// Function to save changes
+				async function saveChanges() {
+					// Get the updated profile data from the form
+					const updatedProfileData = {
+						admin : userProfileUpdated.data.data.admin,
+						email: document.getElementById('email').value,
+						haslo: document.getElementById('haslo').value,
+						nazwa: document.getElementById('nazwa').value,
+						zdjecie: document.getElementById('zdjecie').value,
+						
+					};
+
+					// Send the updated profile data to the server
+					const response = await fetch('/profil/zapisz', {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json'
+						},
+						body: JSON.stringify(updatedProfileData)
+					});
+
+					// Check if the request was successful
+					if (response.ok) {
+						console.log('Request was successful');
+					} else {
+						console.error('Failed to save changes');
+					}
+				}
+
+
+
+				// Add event listener to the edit profile button
+				document.getElementById('editProfileButton').addEventListener('click', convertToForms);
+
+				// Add event listener to the edit profile button
+				document.getElementById('editProfileButton').addEventListener('click', convertToForms);
+
+				// Add event listener to the save changes button
+				document.getElementById('saveChangesButton').addEventListener('click', saveChanges);
+			</script>
 
 		</div>
 		<!-- #mid -->
