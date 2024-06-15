@@ -994,6 +994,17 @@
 				}
 			</style>
 
+			<!--Emaile-->
+			<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+			</script>
+			<script type="text/javascript">
+				(function () {
+					emailjs.init({
+						publicKey: "Y4w6MXViHo1amAzL-",
+					});
+				})();
+			</script>
+
 
 
 			<form id="registrationForm">
@@ -1036,6 +1047,20 @@
 						const data = await response.json();
 						if (data.status === 'success') {
 							document.getElementById('registrationForm').innerHTML = 'Registration successful!';
+							//email
+							var templateParams = {
+								to_name: nazwa,
+								to_email: email,
+							};
+
+							emailjs.send('service_q0swfbu', 'template_depulfm', templateParams).then(
+								(response) => {
+									console.log('SUCCESS!', response.status, response.text);
+								},
+								(error) => {
+									console.log('FAILED...', error);
+								},
+							);
 						} else {
 							document.getElementById('registrationForm').innerHTML = 'Registration failed!';
 						}
@@ -1325,7 +1350,7 @@
 	<script type="text/javascript" src="/wp-content/plugins/elementor/assets/js/frontend.min.js"
 		id="elementor-frontend-js"></script>
 	<script src="/changeLanguage.js"></script>
-					<!-- sprawdzanie czy użyytkownik jest zalogowany-->
+	<!-- sprawdzanie czy użyytkownik jest zalogowany-->
 	<script type="text/javascript" src="/skrypty/czyzalogowany.js" id="czyzalogowany-js"></script>
 	<!--koniec-->
 </body>
