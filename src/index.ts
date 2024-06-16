@@ -102,7 +102,7 @@
     } else if (event.request.method === 'POST' && pathname === '/oceny/dodaj') {
       const client = new Client(DATABASE_URL);
       const productData = await event.request.json(); // parse the incoming JSON
-      await DodajOcene(client, productData);
+      await OcenSklep(client, productData);
 
       return new Response('success', {
         status: 200
@@ -316,7 +316,7 @@
     const {
       rows
     } = await client.query(`
-  SELECT ocena_sklep_id, ocena_sklep, ocena_sklep.id_sklep, nazwa_u, uzytkownicy.zdjecie, sklepy.nazwa, sklepy.obraz, opis
+  SELECT  ocena_sklep, ocena_sklep.id_sklep, nazwa_u, uzytkownicy.zdjecie, sklepy.nazwa, sklepy.obraz, opis
   FROM ocena_sklep
   INNER JOIN uzytkownicy ON ocena_sklep.nazwa_u = uzytkownicy.nazwa
   INNER JOIN sklepy ON ocena_sklep.id_sklep = sklepy.id_sklep
@@ -325,34 +325,47 @@
     return rows;
   }
 
-  async function OcenSklep(client: Client, formData: FormData) {
-    // Extract the data from the FormData
-    const shopName = formData.get('shop-name');
-    const stars = formData.get('stars');
-    const opis = formData.get('opis');
-    const userId = formData.get('userId');
-  
-    // Find the id_sklep from the sklepy table
-    const sklepResult = await client.query(`SELECT id_sklep FROM sklepy WHERE nazwa = $1`, [shopName]);
-    const id_sklep = sklepResult.rows[0]?.id_sklep;
-  
-    // Find the nazwa from the uzytkownicy table
-    const userResult = await client.query(`SELECT nazwa FROM uzytkownicy WHERE nazwa = $1`, [userId]);
-    const nazwa_u = userResult.rows[0]?.nazwa;
-  
-    // Insert the data into the ocena_sklep table
-    const query = `INSERT INTO ocena_sklep (ocena_sklep, id_sklep, nazwa_u, opis) VALUES ($1, $2, $3, $4)`;
-    const values = [stars, id_sklep, nazwa_u, opis];
-  
-    try {
-      // Execute the query
-      await client.query(query, values);
-    } catch (err) {
-      if (err instanceof Error) {
-        console.error('Error executing query', err.stack);
-      } else {
-        console.error('Error executing query', err);
-      }
-    }
-  }
 
+async function OcenSklep(client: Client, review: any) {
+  // Connect to the database
+  await client.connect();
+  console.log('review:', JSON.stringify(review)); // Log the review data
+
+  // Find the id_sklep from the sklepy table using fuzzy search
+  console.log("review.shopName", review.shopName)
+  const sklepResult = await client.query(`SELECT id_sklep FROM sklepy WHERE nazwa % $1`, [review.shopName]);
+  const id_sklep = sklepResult.rows[0]?.id_sklep;
+  console.log("nazwa sklepu", sklepResult.rows[0]?.id_sklep)
+
+  // Find the nazwa from the uzytkownicy table using fuzzy search
+  const userResult = await client.query(`SELECT nazwa FROM uzytkownicy WHERE nazwa % $1 ORDER BY nazwa <-> $1 ASC`, [review.userId]);
+  const nazwa_u = userResult.rows[0]?.nazwa;
+  console.log("nazwa usera", userResult.rows[0]?.nazwa)
+
+  const values = [review.stars, id_sklep, nazwa_u, review.opis];
+
+  // Insert the data into the ocena_sklep table
+  const query = `INSERT INTO ocena_sklep (ocena_sklep, id_sklep, nazwa_u, opis) VALUES ($1, $2, $3, $4)`;
+
+  try {
+    // Execute the query
+    await client.query(query, values);
+  } catch (err) {
+    if (err instanceof Error) {
+      console.error('Error executing query', err.stack);
+    } else {
+      console.error('Error executing query', err);
+    }
+  } finally {
+    // End the database connection
+    return {
+      status: 200,
+      statusText: 'OK',
+      headers: {},
+      body: JSON.stringify({
+        status: 'success'
+      })
+    };
+    await client.end();
+  }
+}

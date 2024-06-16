@@ -1024,6 +1024,23 @@
 										#add-review-form button:hover {
 											background-color: #0056b3;
 										}
+
+										.user {
+											display: flex;
+											flex-direction: column;
+											align-items: center;
+											flex: 0.5;
+										}
+
+										.user-image {
+											width: 50px;
+											height: 50px;
+											border-radius: 50%;
+										}
+
+										.username {
+											text-align: center;
+										}
 									</style>
 									<div id="review-section">
 										<!-- Reviews will be inserted here -->
@@ -1064,16 +1081,16 @@
 						const reviewDiv = document.createElement('div');
 						reviewDiv.className = 'review';
 
-						const userName = document.createElement('div');
-						userName.className = 'review-text';
-						userName.textContent = review.nazwa_u;
-						reviewDiv.appendChild(userName);
-
 						const userImage = document.createElement('img');
 						userImage.src = review.zdjecie;
 						userImage.className = 'user-image';
 						userImage.alt = 'User image';
 						reviewDiv.appendChild(userImage);
+
+						const userName = document.createElement('div');
+						userName.className = 'review-text';
+						userName.textContent = review.nazwa_u;
+						reviewDiv.appendChild(userName);
 
 						const starsDiv = document.createElement('div');
 						starsDiv.className = 'stars';
@@ -1103,24 +1120,40 @@
 				// Prevent the form from being submitted normally
 				event.preventDefault();
 
-				// Create a new FormData object from the form
-				var formData = new FormData(event.target);
+				// Manually extract the data from the form fields
+				var shopName = document.getElementById('shop-name').value;
+				var stars = document.getElementById('stars').value;
+				var opis = document.getElementById('opis').value;
 
 				// Get the userId from the cookie
 				let userIdCookie2 = document.cookie.split('; ').find(row => row.startsWith('userId='));
 				let userId2 = userIdCookie2 ? userIdCookie2.split('=')[1] : null;
 				console.log('userId from cookie:', userId2);
 
-				// Append userId2 to formData
-				formData.append('userId', userId2);
+				// Create an object to hold the form data
+				var formData = {
+					'shopName': shopName,
+					'stars': stars,
+					'opis': opis,
+					'userId': userId2
+				};
 				console.log('formData:', formData);
 
 				// Use the fetch API to send a POST request to the oceny/dodaj endpoint
-				fetch('oceny/dodaj', {
+				fetch('/oceny/dodaj', {
 						method: 'POST',
-						body: formData
+						headers: {
+							'Content-Type': 'application/json'
+						},
+						body: JSON.stringify(formData)
 					})
-					.then(response => response.json())
+					.then(response => {
+						// Log the server's response
+						console.log(response);
+
+						// Then parse the response as JSON
+						return response.json();
+					})
 					.then(data => console.log(data))
 					.catch(error => console.error('Error:', error));
 			});
