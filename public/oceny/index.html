@@ -927,8 +927,122 @@
 
 									<p>Nie wahaj się podzielić swoimi spostrzeżeniami i doświadczeniami z innymi
 										użytkownikami. Każdy głos ma znaczenie!</p>
-									<div class="clear"></div>
 
+									<div class="clear"></div>
+									<style>
+										.review {
+											display: flex;
+											flex-direction: row;
+											align-items: center;
+											gap: 20px;
+											border: 1px solid #ccc;
+											padding: 10px;
+											margin-bottom: 10px;
+											box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+											width: 100%;
+										}
+
+										.stars {
+											font-size: 2em;
+											color: gold;
+											flex: 1;
+											/* Adjust this to change the size of the stars div */
+										}
+
+										.review-image {
+											height: auto;
+											flex: 1.5;
+											/* Adjust this to change the size of the image */
+											width: 250px;
+											height: 250px;
+										}
+
+										.shop-name {
+											font-weight: bold;
+											flex: 1;
+											/* Adjust this to change the size of the shop name div */
+										}
+
+										.user-image {
+											width: 50px;
+											height: 50px;
+											border-radius: 50%;
+											flex: 0.5;
+											/* Adjust this to change the size of the user image */
+										}
+
+										.opis {
+											flex: 2;
+											/* Adjust this to change the size of the opis div */
+											text-align: right;
+										}
+
+
+
+
+										#add-review-section {
+											display: flex;
+											flex-direction: column;
+											align-items: center;
+											margin-top: 20px;
+										}
+
+										#add-review-form {
+											display: flex;
+											flex-direction: column;
+											gap: 10px;
+											width: 80%;
+											max-width: 450px;
+										}
+
+										#add-review-form label {
+											font-weight: bold;
+										}
+
+										#add-review-form input,
+										#add-review-form textarea {
+											padding: 10px;
+											border: 1px solid #ccc;
+											border-radius: 5px;
+											font-size: 1em;
+											width: 100%;
+											/* This will make all input fields and the textarea the same width */
+										}
+
+										#add-review-form button {
+											padding: 10px 20px;
+											border: none;
+											border-radius: 5px;
+											background-color: #007BFF;
+											color: white;
+											font-size: 1em;
+											cursor: pointer;
+											width: 100%;
+											/* This will make the button the same width as the input fields and the textarea */
+										}
+
+										#add-review-form button:hover {
+											background-color: #0056b3;
+										}
+									</style>
+									<div id="review-section">
+										<!-- Reviews will be inserted here -->
+									</div>
+									<div id="add-review-section">
+										<h2>Dodaj recenzję</h2>
+										<form id="add-review-form">
+											<label for="shop-name">Sklep:</label>
+											<input type="text" id="shop-name" name="shop-name" required>
+
+											<label for="stars">Gwiazdki (1-5):</label>
+											<input type="number" id="stars" name="stars" min="1" max="5" required>
+
+											<label for="opis">Opis:</label>
+											<textarea id="opis" name="opis" required></textarea>
+
+											<button type="submit">Wyślij!</button>
+										</form>
+									</div>
 								</div>
 
 
@@ -939,6 +1053,78 @@
 			</article>
 
 		</div>
+		<script>
+			fetch('/oceny/reviews')
+				.then(response => response.json())
+				.then(reviews => {
+					const reviewSection = document.getElementById('review-section');
+
+					for (let review of reviews) {
+						console.log(review)
+						const reviewDiv = document.createElement('div');
+						reviewDiv.className = 'review';
+
+						const userName = document.createElement('div');
+						userName.className = 'review-text';
+						userName.textContent = review.nazwa_u;
+						reviewDiv.appendChild(userName);
+
+						const userImage = document.createElement('img');
+						userImage.src = review.zdjecie;
+						userImage.className = 'user-image';
+						userImage.alt = 'User image';
+						reviewDiv.appendChild(userImage);
+
+						const starsDiv = document.createElement('div');
+						starsDiv.className = 'stars';
+						starsDiv.textContent = '★'.repeat(review.ocena_sklep) + '☆'.repeat(5 - review.ocena_sklep);
+						reviewDiv.appendChild(starsDiv);
+
+						const shopNameDiv = document.createElement('div');
+						shopNameDiv.className = 'shop-name';
+						shopNameDiv.textContent = review.nazwa;
+						reviewDiv.appendChild(shopNameDiv);
+
+						const reviewImage = document.createElement('img');
+						reviewImage.src = review.obraz;
+						reviewImage.className = 'review-image';
+						reviewImage.alt = 'Review image';
+						reviewDiv.appendChild(reviewImage);
+
+						const opisDiv = document.createElement('div');
+						opisDiv.className = 'opis';
+						opisDiv.textContent = review.opis;
+						reviewDiv.appendChild(opisDiv);
+
+						reviewSection.appendChild(reviewDiv);
+					}
+				});
+			document.getElementById('add-review-form').addEventListener('submit', function (event) {
+				// Prevent the form from being submitted normally
+				event.preventDefault();
+
+				// Create a new FormData object from the form
+				var formData = new FormData(event.target);
+
+				// Get the userId from the cookie
+				let userIdCookie2 = document.cookie.split('; ').find(row => row.startsWith('userId='));
+				let userId2 = userIdCookie2 ? userIdCookie2.split('=')[1] : null;
+				console.log('userId from cookie:', userId2);
+
+				// Append userId2 to formData
+				formData.append('userId', userId2);
+				console.log('formData:', formData);
+
+				// Use the fetch API to send a POST request to the oceny/dodaj endpoint
+				fetch('oceny/dodaj', {
+						method: 'POST',
+						body: formData
+					})
+					.then(response => response.json())
+					.then(data => console.log(data))
+					.catch(error => console.error('Error:', error));
+			});
+		</script>
 		<!-- #mid -->
 
 		<footer id="footer" class="to-move narrow classic" itemtype="https://schema.org/WPFooter" itemscope>
@@ -1075,7 +1261,7 @@
 		id="jquery-lightgallery-js"></script>
 	<script type="text/javascript" src="/wp-content/themes/rife-free/js/script.min.js"
 		id="apollo13framework-scripts-js"></script>
-					<!-- sprawdzanie czy użyytkownik jest zalogowany-->
+	<!-- sprawdzanie czy użyytkownik jest zalogowany-->
 	<script type="text/javascript" src="/skrypty/czyzalogowany.js" id="czyzalogowany-js"></script>
 	<!--koniec-->
 </body>

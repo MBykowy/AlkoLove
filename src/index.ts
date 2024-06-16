@@ -78,18 +78,36 @@
       const client = new Client(DATABASE_URL);
       const dane = await event.request.json(); // parse the incoming JSON
       await ZmienDane(client, dane);
-      
-      return new Response('success', { status: 200 });
+
+      return new Response('success', {
+        status: 200
+      });
     } else if (event.request.method === 'POST' && pathname === '/produkty/zapisz') {
       const client = new Client(DATABASE_URL);
       const productData = await event.request.json(); // parse the incoming JSON
       await ZmienDaneProduktu(client, productData);
-      
-      return new Response('success', { status: 200 });
+
+      return new Response('success', {
+        status: 200
+      });
+    } else if (event.request.method === 'GET' && pathname === '/oceny/reviews') {
+      const client = new Client(DATABASE_URL);
+      await client.connect();
+      const reviews = await fetchOcenySklepow(client);
+      await client.end();
+
+      return new Response(JSON.stringify(reviews), {
+        status: 200
+      });
+    } else if (event.request.method === 'POST' && pathname === '/oceny/dodaj') {
+      const client = new Client(DATABASE_URL);
+      const productData = await event.request.json(); // parse the incoming JSON
+      await DodajOcene(client, productData);
+
+      return new Response('success', {
+        status: 200
+      });
     }
-
-
-
 
 
 
@@ -240,7 +258,7 @@
 
   //zmiana danych profilu
   async function ZmienDane(client: Client, data1: any) {
-    
+
     await client.connect();
     const query = 'UPDATE uzytkownicy SET admin = $1, email = $2, haslo = $3, nazwa = $4, zdjecie = $5 WHERE nazwa = $4';
     const values = [false, data1.email, data1.haslo, data1.nazwa, data1.zdjecie]; // assuming admin is always false for new users
@@ -250,7 +268,9 @@
       status: 200,
       statusText: 'OK',
       headers: {},
-      body: JSON.stringify({ status: 'success' })
+      body: JSON.stringify({
+        status: 'success'
+      })
     };
   }
 
@@ -290,4 +310,49 @@
       // End the database connection
       await client.end();
     }
-}
+  }
+  //oceny
+  async function fetchOcenySklepow(client: Client) {
+    const {
+      rows
+    } = await client.query(`
+  SELECT ocena_sklep_id, ocena_sklep, ocena_sklep.id_sklep, nazwa_u, uzytkownicy.zdjecie, sklepy.nazwa, sklepy.obraz, opis
+  FROM ocena_sklep
+  INNER JOIN uzytkownicy ON ocena_sklep.nazwa_u = uzytkownicy.nazwa
+  INNER JOIN sklepy ON ocena_sklep.id_sklep = sklepy.id_sklep
+  `);
+
+    return rows;
+  }
+
+  async function OcenSklep(client: Client, formData: FormData) {
+    // Extract the data from the FormData
+    const shopName = formData.get('shop-name');
+    const stars = formData.get('stars');
+    const opis = formData.get('opis');
+    const userId = formData.get('userId');
+  
+    // Find the id_sklep from the sklepy table
+    const sklepResult = await client.query(`SELECT id_sklep FROM sklepy WHERE nazwa = $1`, [shopName]);
+    const id_sklep = sklepResult.rows[0]?.id_sklep;
+  
+    // Find the nazwa from the uzytkownicy table
+    const userResult = await client.query(`SELECT nazwa FROM uzytkownicy WHERE nazwa = $1`, [userId]);
+    const nazwa_u = userResult.rows[0]?.nazwa;
+  
+    // Insert the data into the ocena_sklep table
+    const query = `INSERT INTO ocena_sklep (ocena_sklep, id_sklep, nazwa_u, opis) VALUES ($1, $2, $3, $4)`;
+    const values = [stars, id_sklep, nazwa_u, opis];
+  
+    try {
+      // Execute the query
+      await client.query(query, values);
+    } catch (err) {
+      if (err instanceof Error) {
+        console.error('Error executing query', err.stack);
+      } else {
+        console.error('Error executing query', err);
+      }
+    }
+  }
+
