@@ -127,7 +127,7 @@
 		.has-black-color {
 			color: var(--wp--preset--color--black) !important;
 		}
-		
+
 
 		.has-cyan-bluish-gray-color {
 			color: var(--wp--preset--color--cyan-bluish-gray) !important;
@@ -829,7 +829,8 @@
 						<ul id="menu-main-menu" class="top-menu opener-icons-on">
 							<li id="menu-item-11577"
 								class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-11577 normal-menu">
-								<a href="/"><span>Strona główna</span></a></li>
+								<a href="/"><span>Strona główna</span></a>
+							</li>
 							<li id="menu-item-11723"
 								class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-11721 current_page_item menu-item-has-children menu-parent-item menu-item-11723 normal-menu">
 								<a href="/sprawdz/"><span>Sprawdź</span></a><i tabindex="0"
@@ -837,30 +838,42 @@
 								<ul class="sub-menu">
 									<li id="menu-item-11724"
 										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11724">
-										<a href="/wyszukiwarka/"><span>Wyszukiwarka</span></a></li>
+										<a href="/wyszukiwarka/"><span>Wyszukiwarka</span></a>
+									</li>
 									<li id="menu-item-11725"
 										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11725">
-										<a href="/oceny/"><span>Oceny</span></a></li>
+										<a href="/oceny/"><span>Oceny</span></a>
+									</li>
 									<li id="menu-item-11726"
 										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11726">
-										<a href="/porownaj/"><span>Porównaj</span></a></li>
+										<a href="/porownaj/"><span>Porównaj</span></a>
+									</li>
 									<li id="menu-item-11727"
 										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11727">
-										<a href="/filtrowanie/"><span>Filtrowanie</span></a></li>
+										<a href="/filtrowanie/"><span>Filtrowanie</span></a>
+									</li>
 									<li id="menu-item-11728"
 										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11728">
-										<a href="/sklepy-w-okolicy/"><span>Sklepy w okolicy</span></a></li>
+										<a href="/sklepy-w-okolicy/"><span>Sklepy w okolicy</span></a>
+									</li>
 								</ul>
 							</li>
 							<li id="menu-item-11789"
-								class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11789 normal-menu">
-								<a href="/logowanie/"><span>Logowanie</span></a></li>
+								class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-11780 current_page_item menu-item-11789 normal-menu">
+								<a href="/logowanie/"><span>Logowanie</span></a>
+							</li>
 							<li id="menu-item-11790"
 								class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11790 normal-menu">
-								<a href="/rejestracja/"><span>Rejestracja</span></a></li>
+								<a href="/rejestracja/"><span>Rejestracja</span></a>
+							</li>
+							<li id="menu-item-11791"
+								class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11790 normal-menu">
+								<a href="/profil/"><span>Profil</span></a>
+							</li>
 							<li id="menu-item-11581"
 								class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11581 normal-menu">
-								<a href="/contact/"><span>O nas</span></a></li>
+								<a href="/contact/"><span>O nas</span></a>
+							</li>
 						</ul>
 					</div>
 				</nav>
@@ -944,7 +957,8 @@
 					border-top: 1px solid #ccc;
 					margin: 20px 0;
 				}
-/*BAZA danych zrobiona pod wyszukiwanie produktow*/
+
+				/*BAZA danych zrobiona pod wyszukiwanie produktow*/
 				/* Wyszukiwanie */
 			</style>
 			<form id="productForm">
@@ -958,15 +972,15 @@
 
 
 	<script type="module">
-		document.getElementById('productForm').addEventListener('submit', function(e) {
-		e.preventDefault();
-		const productName = document.getElementById('productName').value;
-		fetch(`/wyszukiwarka?nazwa=${encodeURIComponent(productName)}`)
-		.then(response => response.json())
-		.then(product => { // Changed 'rows' to 'product'
-			let html = '';
-			const shopId = product.shop ? product.shop.id_sklep : null;
-			html += `
+		document.getElementById('productForm').addEventListener('submit', function (e) {
+			e.preventDefault();
+			const productName = document.getElementById('productName').value;
+			fetch(`/wyszukiwarka?nazwa=${encodeURIComponent(productName)}`)
+				.then(response => response.json())
+				.then(product => { // Changed 'rows' to 'product'
+					let html = '';
+					const shopId = product.shop ? product.shop.id_sklep : null;
+					html += `
 				<div>Nazwa produktu: ${product.nazwa}</div>
 				<div>Zawartość alkocholu: ${product.zawartosc_alk}%</div>
 				<div>Cena: ${product.cena} zł</div>
@@ -975,56 +989,64 @@
 				<div><img src="${product.obraz}" alt="${product.nazwa}"></div>
 				${shopId ? `<div id="map${shopId}" style="height: 400px; width: 600px;"></div>` : ''}
 				<hr>`;
-			document.getElementById('productInfo').innerHTML = html;
-	
-			if (navigator.geolocation) {
-				navigator.geolocation.getCurrentPosition(function(position) {
-					const userLocation = [position.coords.latitude, position.coords.longitude];
-					console.log("Lokalizacja usera : ", userLocation);
-	
-					if (product.shop && product.shop.id_sklep) {
-						const map = L.map(`map${product.shop.id_sklep}`).setView(userLocation, 13);
-						L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-							maxZoom: 19,
-						}).addTo(map);
-	
-						// Create a custom icon
-						const userIcon = L.icon({
-							iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
-							shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-							iconSize: [25, 41],
-							iconAnchor: [12, 41],
-							popupAnchor: [1, -34],
-							shadowSize: [41, 41]
-						});
-	
-						// Add a marker for the user's location with the custom icon
-						L.marker(userLocation, {icon: userIcon}).addTo(map).bindPopup('You are here').openPopup();
-	
-						fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(product.shop.adres)}`)
-							.then(response => response.json())
-							.then(data => {
-								if (data[0]) {
-									map.setView([data[0].lat, data[0].lon], 13);
-									const smallIcon = new L.icon({
-										iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
-										shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-										iconSize: [25, 41],
-										iconAnchor: [12, 41],
-										popupAnchor: [1, -34],
-										shadowSize: [41, 41]
+					document.getElementById('productInfo').innerHTML = html;
+
+					if (navigator.geolocation) {
+						navigator.geolocation.getCurrentPosition(function (position) {
+							const userLocation = [position.coords.latitude, position.coords.longitude];
+							console.log("Lokalizacja usera : ", userLocation);
+
+							if (product.shop && product.shop.id_sklep) {
+								const map = L.map(`map${product.shop.id_sklep}`).setView(userLocation,
+								13);
+								L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+									maxZoom: 19,
+								}).addTo(map);
+
+								// Create a custom icon
+								const userIcon = L.icon({
+									iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+									shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+									iconSize: [25, 41],
+									iconAnchor: [12, 41],
+									popupAnchor: [1, -34],
+									shadowSize: [41, 41]
+								});
+
+								// Add a marker for the user's location with the custom icon
+								L.marker(userLocation, {
+									icon: userIcon
+								}).addTo(map).bindPopup('You are here').openPopup();
+
+								fetch(
+										`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(product.shop.adres)}`)
+									.then(response => response.json())
+									.then(data => {
+										if (data[0]) {
+											map.setView([data[0].lat, data[0].lon], 13);
+											const smallIcon = new L.icon({
+												iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+												shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+												iconSize: [25, 41],
+												iconAnchor: [12, 41],
+												popupAnchor: [1, -34],
+												shadowSize: [41, 41]
+											});
+											const marker = L.marker([data[0].lat, data[0].lon], {
+												icon: smallIcon
+											}).addTo(map);
+											marker.bindPopup(
+												`<b>${product.shop.nazwa}</b><br>${product.shop.adres}`
+												).openPopup();
+										}
 									});
-									const marker = L.marker([data[0].lat, data[0].lon], {icon: smallIcon}).addTo(map);
-									marker.bindPopup(`<b>${product.shop.nazwa}</b><br>${product.shop.adres}`).openPopup();
-								}
-							});
+							}
+						});
+					} else {
+						console.log("Geolocation is not supported by this browser.");
 					}
 				});
-			} else {
-				console.log("Geolocation is not supported by this browser.");
-			}
 		});
-	});
 	</script>
 	<!-- Koniec wyszukiwania -->
 	<!-- #mid -->
@@ -1164,6 +1186,9 @@
 	<script type="text/javascript" src="/wp-content/themes/rife-free/js/script.min.js"
 		id="apollo13framework-scripts-js"></script>
 	<script src="/changeLanguage.js"></script>
+				<!-- sprawdzanie czy użyytkownik jest zalogowany-->
+				<script type="text/javascript" src="/skrypty/czyzalogowany.js" id="czyzalogowany-js"></script>
+				<!--koniec-->
 </body>
 
 </html>

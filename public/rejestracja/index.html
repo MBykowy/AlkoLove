@@ -834,7 +834,8 @@
 						<ul id="menu-main-menu" class="top-menu opener-icons-on">
 							<li id="menu-item-11577"
 								class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-11577 normal-menu">
-								<a href="/"><span>Strona główna</span></a></li>
+								<a href="/"><span>Strona główna</span></a>
+							</li>
 							<li id="menu-item-11723"
 								class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-parent-item menu-item-11723 normal-menu">
 								<a href="/sprawdz/"><span>Sprawdź</span></a><i tabindex="0"
@@ -842,30 +843,42 @@
 								<ul class="sub-menu">
 									<li id="menu-item-11724"
 										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11724">
-										<a href="/wyszukiwarka/"><span>Wyszukiwarka</span></a></li>
+										<a href="/wyszukiwarka/"><span>Wyszukiwarka</span></a>
+									</li>
 									<li id="menu-item-11725"
 										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11725">
-										<a href="/oceny/"><span>Oceny</span></a></li>
+										<a href="/oceny/"><span>Oceny</span></a>
+									</li>
 									<li id="menu-item-11726"
 										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11726">
-										<a href="/porownaj/"><span>Porównaj</span></a></li>
+										<a href="/porownaj/"><span>Porównaj</span></a>
+									</li>
 									<li id="menu-item-11727"
 										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11727">
-										<a href="/filtrowanie/"><span>Filtrowanie</span></a></li>
+										<a href="/filtrowanie/"><span>Filtrowanie</span></a>
+									</li>
 									<li id="menu-item-11728"
 										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11728">
-										<a href="/sklepy-w-okolicy/"><span>Sklepy w okolicy</span></a></li>
+										<a href="/sklepy-w-okolicy/"><span>Sklepy w okolicy</span></a>
+									</li>
 								</ul>
 							</li>
 							<li id="menu-item-11789"
-								class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11789 normal-menu">
-								<a href="/logowanie/"><span>Logowanie</span></a></li>
+								class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-11780 current_page_item menu-item-11789 normal-menu">
+								<a href="/logowanie/"><span>Logowanie</span></a>
+							</li>
 							<li id="menu-item-11790"
-								class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-11782 current_page_item menu-item-11790 normal-menu">
-								<a href="/rejestracja/"><span>Rejestracja</span></a></li>
+								class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11790 normal-menu">
+								<a href="/rejestracja/"><span>Rejestracja</span></a>
+							</li>
+							<li id="menu-item-11791"
+								class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11790 normal-menu">
+								<a href="/profil/"><span>Profil</span></a>
+							</li>
 							<li id="menu-item-11581"
 								class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11581 normal-menu">
-								<a href="/contact/"><span>O nas</span></a></li>
+								<a href="/contact/"><span>O nas</span></a>
+							</li>
 						</ul>
 					</div>
 				</nav>
@@ -936,52 +949,61 @@
 			</article>
 
 			<style>
-	#registrationForm {
-		background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
-    margin: 0 auto;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 10vh;
-}
+				#registrationForm {
+					background-color: #fff;
+					padding: 20px;
+					border-radius: 5px;
+					box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+					margin: 0 auto;
+					width: 50%;
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					align-items: center;
+					min-height: 10vh;
+				}
 
 
-#registrationForm label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
-}
+				#registrationForm label {
+					font-weight: bold;
+					display: block;
+					margin-bottom: 5px;
+				}
 
-#registrationForm input[type="text"], 
-#registrationForm input[type="email"], 
-#registrationForm input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-}
+				#registrationForm input[type="text"],
+				#registrationForm input[type="email"],
+				#registrationForm input[type="password"] {
+					width: 100%;
+					padding: 10px;
+					margin-bottom: 10px;
+					border-radius: 5px;
+					border: 1px solid #ddd;
+				}
 
-#registrationForm input[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+				#registrationForm input[type="submit"] {
+					background-color: #4CAF50;
+					color: white;
+					padding: 10px 20px;
+					border: none;
+					border-radius: 5px;
+					cursor: pointer;
+				}
 
-#registrationForm input[type="submit"]:hover {
-    background-color: #45a049;
-}
-
-
+				#registrationForm input[type="submit"]:hover {
+					background-color: #45a049;
+				}
 			</style>
+
+			<!--Emaile-->
+			<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+			</script>
+			<script type="text/javascript">
+				(function () {
+					emailjs.init({
+						publicKey: "Y4w6MXViHo1amAzL-",
+					});
+				})();
+			</script>
 
 
 
@@ -995,32 +1017,50 @@
 				<input type="text" id="name" name="name" required><br>
 				<input type="submit" value="Register">
 			</form>
-			
+
 			<script>
-				document.getElementById('registrationForm').addEventListener('submit', async function(event) {
+				document.getElementById('registrationForm').addEventListener('submit', async function (event) {
 					event.preventDefault();
-				
+
 					const email = document.getElementById('email').value;
 					const haslo = document.getElementById('password').value;
 					const nazwa = document.getElementById('name').value;
 					console.log(email, haslo, nazwa)
-				
+
 					try {
 						const response = await fetch('/register', {
 							method: 'POST',
 							headers: {
 								'Content-Type': 'application/json',
 							},
-							body: JSON.stringify({ email, haslo, nazwa }),
+							body: JSON.stringify({
+								email,
+								haslo,
+								nazwa
+							}),
 						});
-				
+
 						if (!response.ok) {
 							throw new Error(`HTTP error! status: ${response.status}`);
 						}
-				
+
 						const data = await response.json();
 						if (data.status === 'success') {
 							document.getElementById('registrationForm').innerHTML = 'Registration successful!';
+							//email
+							var templateParams = {
+								to_name: nazwa,
+								to_email: email,
+							};
+
+							emailjs.send('service_q0swfbu', 'template_depulfm', templateParams).then(
+								(response) => {
+									console.log('SUCCESS!', response.status, response.text);
+								},
+								(error) => {
+									console.log('FAILED...', error);
+								},
+							);
 						} else {
 							document.getElementById('registrationForm').innerHTML = 'Registration failed!';
 						}
@@ -1029,7 +1069,7 @@
 						document.getElementById('registrationForm').innerHTML = 'An error occurred. Please try again.';
 					}
 				});
-				</script>
+			</script>
 
 
 
@@ -1310,6 +1350,9 @@
 	<script type="text/javascript" src="/wp-content/plugins/elementor/assets/js/frontend.min.js"
 		id="elementor-frontend-js"></script>
 	<script src="/changeLanguage.js"></script>
+	<!-- sprawdzanie czy użyytkownik jest zalogowany-->
+	<script type="text/javascript" src="/skrypty/czyzalogowany.js" id="czyzalogowany-js"></script>
+	<!--koniec-->
 </body>
 
 </html>
