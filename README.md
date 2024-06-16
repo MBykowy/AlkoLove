@@ -3,35 +3,35 @@
 
 <!-- write in style of README.md a description of a website about finding shops with cheapest prices, comparing products, adding opinions to shops and products, checking for promotions -->
 ##
-### Description
-AlkoLove is a website that allows you to find shops with the cheapest prices, compare products, add opinions to shops and products, check for promotions and much more. The website is designed to help you find the best deals on alcohol products in your area. You can search for products by name, brand, or category, and compare prices from different shops. You can also read reviews from other users, and leave your own opinions on shops and products. The website also has a promotions section, where you can find the latest deals and discounts on alcohol products. Whether you're looking for a specific product, or just want to see what's on offer, AlkoLove has you covered.
+### Opis
+AlkoLove to strona internetowa, która pozwala znaleźć sklepy z najtańszymi cenami, porównać produkty, dodać opinie na temat sklepów i produktów i wiele więcej. Strona została zaprojektowana, aby pomóc Ci znaleźć najlepsze oferty na produkty alkoholowe w Twojej okolicy. Możesz wyszukiwać produkty po nazwie, marce lub kategorii oraz porównywać ceny w różnych sklepach. Możesz również czytać recenzje od innych użytkowników i zostawiać własne opinie na temat sklepów. Niezależnie od tego, czy szukasz konkretnego produktu, czy po prostu chcesz zobaczyć, co jest w ofercie, AlkoLove ma wszystko, czego potrzebujesz.
 
-### Features
-- Find shops with the cheapest prices
-- Compare products
-- Add opinions to shops and products
-- Check for promotions
-- Search for products by name, brand, or category
-- Read reviews from other users
-- Leave your own opinions on shops and products
-- Find the latest deals and discounts on alcohol products
+### Funkcje
 
-### How to use
-1. Go to [AlkoLove](https://alkolove.109218.workers.dev/)
-2. Search for products by name, brand, or category
-3. Compare prices from different shops
-4. Read reviews from other users
-5. Leave your own opinions on shops and products
-6. Check for promotions and discounts
+-Znajdź sklepy z najniższymi cenami
+-Porównuj produkty
+-Dodawaj opinie o sklepach 
+-Wyszukuj produkty po nazwie, marce lub kategorii
+-Czytaj recenzje od innych użytkowników
+-Zostawiaj własne opinie o sklepach 
+-Znajduj najnowsze oferty 
 
-### Technologies
+### Jak użyć 
+1.Wejdź na [AlkoLove](https://alkolove.109218.workers.dev/)
+2.Wyszukaj produkty po nazwie, marce lub kategorii
+3.Porównaj ceny w różnych sklepach
+4.Przeczytaj recenzje od innych użytkowników
+5.Zostaw własne opinie o sklepach 
+
+### Technologie
 - HTML
 - CSS
 - JavaScript
 - Neon
-
+- Cloudfare
+  
 ### Screenshots
-![Screenshot 1](https://via.placeholder.com/600x300)
+![Screenshot 1]([https://via.placeholder.com](https://cdn.discordapp.com/attachments/1121425906947346535/1251998106397049055/image.png?ex=66709d99&is=666f4c19&hm=45d9d634dba82916dc46c60ca0f77112be5884bbf058b082f6f9bc93989411d7&)/600x300)
 ![Screenshot 2](https://via.placeholder.com/600x300)
 ![Screenshot 3](https://via.placeholder.com/600x300)
 
