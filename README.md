@@ -30,69 +30,17 @@ AlkoLove to strona internetowa, która pozwala znaleźć sklepy z najtańszymi c
 - Neon
 - Cloudfare
   
-### Screenshots
-![Screenshot 1]([https://via.placeholder.com](https://cdn.discordapp.com/attachments/1121425906947346535/1251998106397049055/image.png?ex=66709d99&is=666f4c19&hm=45d9d634dba82916dc46c60ca0f77112be5884bbf058b082f6f9bc93989411d7&)/600x300)
-![Screenshot 2](https://via.placeholder.com/600x300)
-![Screenshot 3](https://via.placeholder.com/600x300)
+### Zdjęcia
+![Screenshot 1](https://cdn.discordapp.com/attachments/1121425906947346535/1251998106397049055/image.png?ex=66709d99&is=666f4c19&hm=45d9d634dba82916dc46c60ca0f77112be5884bbf058b082f6f9bc93989411d7&)
+![Screenshot 2](https://cdn.discordapp.com/attachments/1121425906947346535/1252001024122556529/image.png?ex=6670a051&is=666f4ed1&hm=5c68e756a47e19e9de073ae8ffeb598e6bd48c39c90225c77b6ee56b3c09e06a&)
+![Screenshot 3](https://cdn.discordapp.com/attachments/1121425906947346535/1252001564500033647/image.png?ex=6670a0d2&is=666f4f52&hm=0f4e9d28f134a073478de09950cc3b12cde540d8f48d870932692ba2d128afa9&)
+### Licencje
+Oprogramowanie jest licencjonowane na warunkach Powszechnej Licencji Publicznej GNU (GPL), wersja 3.
 
-### License
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+### Kontakt
+- Strona: [AlkoCheck](https://alkocheck.109218.workers.dev/)
+- Email: goscieodstronwww@gmail.com
 
-### Contact
-- Website: [AlkoCheck](https://alkocheck.109218.workers.dev/)
-- Email:
-- Twitter:
-- LinkedIn:
-- Instagram:
-- Facebook:
 
-### Acknowledgements
-- [React](https://reactjs.org/)
-- [Node.js](https://nodejs.org/)
-- [Express](https://expressjs.com/)
-- [MongoDB](https://www.mongodb.com/)
-- [Heroku](https://www.heroku.com/)
-- [GitHub](
-- [Font Awesome](https://fontawesome.com/)
-- [Google Fonts](https://fonts.google.com/)
-- [Unsplash](https://unsplash.com/)
-- [Pexels](https://www.pexels.com/)
-- [Pixabay](https://pixabay.com/)
-- [Freepik](https://www.freepik.com/)
-- [Flaticon](https://www.flaticon.com/)
-- [W3Schools](https://www.w3schools.com/)
-- [MDN Web Docs](https://developer.mozilla.org/)
-- [Stack Overflow](https://stackoverflow.com/)
-- [Codecademy](https://www.codecademy.com/)
-- [Coursera](https://www.coursera.org/)
-- [Udemy](https://www.udemy.com/)
-- [edX](https://www.edx.org/)
-- [Khan Academy](https://www.khanacademy.org/)
-- [YouTube](https://www.youtube.com/)
-- [Medium](https://medium.com/)
-- [Dev.to](https://dev.to/)
-- [HackerRank](https://www.hackerrank.com/)
-- [LeetCode](https://leetcode.com/)
-- [CodePen](https://codepen.io/)
-- [JSFiddle](https://jsfiddle.net/)
-- [Glitch](https://glitch.com/)
-- [CodeSandbox](https://codesandbox.io/)
-- [Repl.it](https://repl.it/)
-- [StackBlitz](https://stackblitz.com/)
-- [Heroku](https://www.heroku.com/)
-- [Netlify](https://www.netlify.com/)
-- [Vercel](https://vercel.com/)
-- [GitHub Pages](https://pages.github.com/)
-- [GitLab Pages](https://docs.gitlab.com/ee/user/project/pages/)
-- [Bitbucket Cloud](https://support.atlassian.com/bitbucket-cloud/docs/publishing-a-website-on-bitbucket-cloud/)
-- [Cloudflare Pages](https://pages.cloudflare.com/)
-- [Firebase Hosting](https://firebase.google.com/docs/hosting)
-- [AWS Amplify](https://aws.amazon.com/amplify/)
-- [Microsoft Azure Static Web Apps](https://azure.microsoft.com/en-us/services/app-service/static/)
-- [Google Cloud Run](https://cloud.google.com/run/)
-- [DigitalOcean App Platform](https://www.digitalocean.com/products/app-platform/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
-- [Heroku](https://www.heroku.com/)
 
 
