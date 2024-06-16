@@ -1077,44 +1077,49 @@
 					const reviewSection = document.getElementById('review-section');
 
 					for (let review of reviews) {
-						console.log(review)
-						const reviewDiv = document.createElement('div');
-						reviewDiv.className = 'review';
+  console.log(review)
+  const reviewDiv = document.createElement('div');
+  reviewDiv.className = 'review';
 
-						const userImage = document.createElement('img');
-						userImage.src = review.zdjecie;
-						userImage.className = 'user-image';
-						userImage.alt = 'User image';
-						reviewDiv.appendChild(userImage);
+  const userDiv = document.createElement('div');
+  userDiv.className = 'user';
 
-						const userName = document.createElement('div');
-						userName.className = 'review-text';
-						userName.textContent = review.nazwa_u;
-						reviewDiv.appendChild(userName);
+  const userImage = document.createElement('img');
+  userImage.src = review.zdjecie;
+  userImage.className = 'user-image';
+  userImage.alt = 'User image';
+  userDiv.appendChild(userImage);
 
-						const starsDiv = document.createElement('div');
-						starsDiv.className = 'stars';
-						starsDiv.textContent = '★'.repeat(review.ocena_sklep) + '☆'.repeat(5 - review.ocena_sklep);
-						reviewDiv.appendChild(starsDiv);
+  const userName = document.createElement('div');
+  userName.className = 'username';
+  userName.textContent = review.nazwa_u;
+  userDiv.appendChild(userName);
 
-						const shopNameDiv = document.createElement('div');
-						shopNameDiv.className = 'shop-name';
-						shopNameDiv.textContent = review.nazwa;
-						reviewDiv.appendChild(shopNameDiv);
+  reviewDiv.appendChild(userDiv);
 
-						const reviewImage = document.createElement('img');
-						reviewImage.src = review.obraz;
-						reviewImage.className = 'review-image';
-						reviewImage.alt = 'Review image';
-						reviewDiv.appendChild(reviewImage);
+  const starsDiv = document.createElement('div');
+  starsDiv.className = 'stars';
+  starsDiv.textContent = '★'.repeat(review.ocena_sklep) + '☆'.repeat(5 - review.ocena_sklep);
+  reviewDiv.appendChild(starsDiv);
 
-						const opisDiv = document.createElement('div');
-						opisDiv.className = 'opis';
-						opisDiv.textContent = review.opis;
-						reviewDiv.appendChild(opisDiv);
+  const shopNameDiv = document.createElement('div');
+  shopNameDiv.className = 'shop-name';
+  shopNameDiv.textContent = review.nazwa;
+  reviewDiv.appendChild(shopNameDiv);
 
-						reviewSection.appendChild(reviewDiv);
-					}
+  const reviewImage = document.createElement('img');
+  reviewImage.src = review.obraz;
+  reviewImage.className = 'review-image';
+  reviewImage.alt = 'Review image';
+  reviewDiv.appendChild(reviewImage);
+
+  const opisDiv = document.createElement('div');
+  opisDiv.className = 'opis';
+  opisDiv.textContent = review.opis;
+  reviewDiv.appendChild(opisDiv);
+
+  reviewSection.appendChild(reviewDiv);
+}
 				});
 			document.getElementById('add-review-form').addEventListener('submit', function (event) {
 				// Prevent the form from being submitted normally
